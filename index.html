@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>¡Felices 50 Años! Un Viaje al Mar</title>
+  <title>¡Felices 50 Años! Sorpresa en Cartagena</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -47,15 +47,16 @@
     }
 
     .container {
-      max-width: 920px;
+      max-width: 760px;
       margin: 0 auto;
-      padding: 32px 16px 80px;
+      padding: 32px 16px 84px;
       display: flex;
       flex-direction: column;
-      gap: 44px;
+      gap: 36px;
     }
 
-    .hero { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 18px; padding-top: 8px; }
+    /* HERO */
+    .hero { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px; padding-top: 6px; }
     .pill-badge {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 6px 16px; border-radius: 999px;
@@ -64,43 +65,42 @@
       border: 1px solid #fde68a;
       animation: float 4s ease-in-out infinite;
     }
-    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-size: clamp(2.1rem, 5vw, 3.4rem);
       color: var(--ocean-900);
       line-height: 1.15;
     }
-    .hero p { max-width: 640px; color: var(--text-muted); font-size: 1.05rem; }
-    .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 4px; }
+    .hero p { max-width: 600px; color: var(--text-muted); font-size: 1.02rem; }
 
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 12px 22px; border-radius: 999px;
-      font-weight: 700; font-size: 0.9rem; text-decoration: none;
-      cursor: pointer; border: none; transition: transform 0.15s, box-shadow 0.2s, background 0.2s;
-    }
-    .btn:active { transform: scale(0.97); }
-    .btn-white { background: #fff; color: var(--ocean-800); box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid #e0f2fe; }
-    .btn-primary { background: var(--ocean-600); color: #fff; box-shadow: 0 6px 16px rgba(2,132,199,0.28); }
-    .btn-primary:hover { background: var(--ocean-800); }
-
-    .card-glass {
-      background: rgba(255, 255, 255, 0.94);
+    /* TARJETAS DE PASO */
+    .step-card {
+      background: rgba(255, 255, 255, 0.96);
       border-radius: 28px;
-      padding: 28px;
+      padding: 26px;
       box-shadow: 0 12px 32px rgba(12, 74, 110, 0.08);
       border: 1px solid #fff;
     }
-    .section-kicker { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--ocean-600); }
-    .section-title { font-family: 'Playfair Display', serif; font-size: 1.85rem; color: #0f172a; margin-top: 2px; }
+    .step-header {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 16px;
+    }
+    .step-kicker {
+      font-size: 0.75rem; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--ocean-600);
+    }
+    .step-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.65rem;
+      color: #0f172a;
+    }
 
-    /* REPRODUCTOR SIEMPRE VISIBLE (IDEAL PARA YOUTUBE SHORTS) */
+    /* PASO 1: VIDEO */
     .video-box {
-      margin: 22px auto 0;
+      margin: 16px auto 0;
       width: 100%;
-      max-width: 380px;
+      max-width: 360px;
       aspect-ratio: 9 / 16;
       border-radius: 24px;
       overflow: hidden;
@@ -108,83 +108,110 @@
       box-shadow: 0 16px 36px rgba(12, 74, 110, 0.22);
       border: 4px solid #fff;
     }
-    .video-box iframe, .video-box video {
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
-    }
+    .video-box iframe { width: 100%; height: 100%; border: 0; display: block; }
 
-    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 20px; }
-
-    .travel-card {
-      background: #fff;
-      border-radius: 26px;
-      overflow: hidden;
-      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.07);
-      border: 1px solid #e2e8f0;
-      display: flex; flex-direction: column; justify-content: space-between;
+    /* SOBRES SORPRESA CERRADOS */
+    .envelope-box {
+      border-radius: 22px;
+      padding: 38px 22px;
+      text-align: center;
+      color: #fff;
       cursor: pointer;
-      transition: transform 0.25s, box-shadow 0.25s;
+      transition: transform 0.22s, filter 0.22s, box-shadow 0.22s;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(12, 74, 110, 0.16);
     }
-    .travel-card:hover { transform: translateY(-5px); box-shadow: 0 18px 36px rgba(12, 74, 110, 0.14); }
+    .envelope-box:hover { transform: translateY(-3px) scale(1.01); filter: brightness(1.04); }
+    .env-blue { background: linear-gradient(135deg, #075985 0%, #0284c7 60%, #38bdf8 100%); }
+    .env-teal { background: linear-gradient(135deg, #0f766e 0%, #0d9488 60%, #2dd4bf 100%); }
+    .env-gold { background: linear-gradient(135deg, #b45309 0%, #d97706 55%, #f59e0b 100%); }
+    .env-sunset { background: linear-gradient(135deg, #1e3a8a 0%, #0369a1 55%, #f59e0b 100%); }
 
-    .ticket-header {
+    .env-icon {
+      width: 68px; height: 68px; margin: 0 auto 14px;
+      border-radius: 50%; background: rgba(255,255,255,0.22);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+    .envelope-box h3 { font-family: 'Playfair Display', serif; font-size: 1.55rem; margin-bottom: 6px; }
+    .envelope-box p { font-size: 0.92rem; opacity: 0.92; max-width: 420px; margin: 0 auto 18px; }
+    .env-btn {
+      display: inline-block; background: #fff; color: #0f172a;
+      padding: 10px 22px; border-radius: 999px; font-weight: 800; font-size: 0.85rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+
+    /* CONTENIDO REVELADO */
+    .revealed-box {
+      animation: popIn 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      background: #fff;
+    }
+    @keyframes popIn {
+      0% { opacity: 0; transform: scale(0.94) translateY(12px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    /* PASE DE ABORDAR */
+    .boarding-head {
       background: linear-gradient(90deg, #0284c7, #38bdf8);
-      color: #fff; padding: 20px 24px;
+      color: #fff; padding: 18px 22px;
       display: flex; align-items: center; justify-content: space-between;
     }
-    .ticket-body { padding: 24px; display: flex; flex-direction: column; gap: 18px; }
-    .route-row { display: flex; align-items: center; justify-content: space-between; text-align: center; }
-    .airport-code { font-size: 1.75rem; font-weight: 800; color: #0f172a; }
-    .airport-code.dest { color: var(--ocean-600); }
-    .dashed-line { border-top: 2px dashed #e2e8f0; margin: 4px 0; }
+    .boarding-head.return-flight {
+      background: linear-gradient(90deg, #0c4a6e, #0284c7);
+    }
+    .boarding-body { padding: 22px; display: flex; flex-direction: column; gap: 16px; }
+    .route-grid { display: flex; align-items: center; justify-content: space-between; text-align: center; }
+    .iata { font-size: 2rem; font-weight: 800; color: #0f172a; line-height: 1.1; }
+    .iata.highlight { color: var(--ocean-600); }
+    .dashed-sep { border-top: 2px dashed #cbd5e1; }
 
-    .hotel-cover { position: relative; height: 185px; overflow: hidden; }
-    .hotel-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
-    .travel-card:hover .hotel-cover img { transform: scale(1.05); }
-    .hotel-overlay {
+    /* HOTEL ALMIRANTE */
+    .hotel-img-wrap { position: relative; height: 230px; overflow: hidden; }
+    .hotel-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hotel-caption {
       position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.1));
-      display: flex; flex-direction: column; justify-content: flex-end; padding: 18px 22px; color: #fff;
+      background: linear-gradient(to top, rgba(0,0,0,0.78), rgba(0,0,0,0.1));
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 20px; color: #fff;
     }
-    .hotel-badge {
-      position: absolute; top: 12px; right: 12px;
-      background: var(--amber-400); color: #0f172a;
-      font-size: 0.75rem; font-weight: 800; padding: 5px 12px; border-radius: 999px;
-    }
-    .tags-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .tags-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .tag { font-size: 0.78rem; font-weight: 600; padding: 4px 10px; border-radius: 8px; background: #f1f5f9; color: #334155; }
 
-    .card-cta {
-      margin: 0 22px 22px;
-      padding: 13px;
-      border-radius: 14px;
+    /* BONO 600.000 */
+    .voucher-card {
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      border: 2px dashed #f59e0b;
+      border-radius: 22px;
+      padding: 28px 22px;
       text-align: center;
+      position: relative;
+    }
+    .voucher-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 3.3rem);
       font-weight: 700;
-      font-size: 0.88rem;
-      transition: background 0.2s, color 0.2s;
+      color: #b45309;
+      margin: 8px 0;
     }
-    .cta-blue { background: #f0f9ff; color: #0369a1; }
-    .travel-card:hover .cta-blue { background: #0284c7; color: #fff; }
-    .cta-amber { background: #fffbeb; color: #b45309; }
-    .travel-card:hover .cta-amber { background: #f59e0b; color: #fff; }
 
-    .activity-card {
-      background: #fff; border-radius: 22px; padding: 22px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.05); border: 1px solid #f1f5f9;
-      display: flex; flex-direction: column; justify-content: space-between; gap: 14px;
-      cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+    /* BOTONES */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 22px; border-radius: 14px;
+      font-weight: 700; font-size: 0.9rem; text-decoration: none;
+      cursor: pointer; border: none; width: 100%; transition: opacity 0.2s, transform 0.15s;
     }
-    .activity-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,0.09); }
-    .act-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
-    .act-icon {
-      width: 48px; height: 48px; border-radius: 16px; background: #f0f9ff;
-      display: flex; align-items: center; justify-content: center; font-size: 1.6rem; flex-shrink: 0;
-    }
-    .act-badge { font-size: 0.7rem; font-weight: 800; padding: 3px 10px; border-radius: 999px; background: #e0f2fe; color: #075985; display: inline-block; margin-bottom: 4px; }
-    .fav-btn { background: none; border: none; font-size: 1.35rem; cursor: pointer; padding: 4px; }
+    .btn:active { transform: scale(0.98); }
+    .btn-blue { background: var(--ocean-600); color: #fff; }
+    .btn-amber { background: #f59e0b; color: #fff; }
+    .btn-white { background: #fff; color: var(--ocean-800); border: 1px solid #cbd5e1; width: auto; border-radius: 999px; }
 
+    /* MODAL CONFIGURACIÓN */
     .modal-backdrop {
       position: fixed; inset: 0; z-index: 100;
       background: rgba(15, 23, 42, 0.65); backdrop-filter: blur(4px);
@@ -192,34 +219,32 @@
     }
     .modal-backdrop.open { display: flex; }
     .modal-box {
-      background: #fff; border-radius: 26px; max-width: 520px; width: 100%;
+      background: #fff; border-radius: 26px; max-width: 540px; width: 100%;
       overflow: hidden; box-shadow: 0 24px 48px rgba(0,0,0,0.25);
     }
     .modal-head {
-      padding: 20px 24px; background: var(--ocean-600); color: #fff;
+      padding: 20px 24px; background: #0f172a; color: #fff;
       display: flex; align-items: center; justify-content: space-between;
     }
     .modal-close {
       width: 32px; height: 32px; border-radius: 50%; border: none;
       background: rgba(255,255,255,0.22); color: #fff; font-weight: 700; cursor: pointer;
     }
-    .modal-content { padding: 24px; display: flex; flex-direction: column; gap: 16px; }
-
+    .modal-content { padding: 24px; display: flex; flex-direction: column; gap: 14px; }
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .form-full { grid-column: 1 / -1; }
-    label { display: block; font-size: 0.8rem; font-weight: 700; color: #334155; margin-bottom: 4px; }
+    label { display: block; font-size: 0.78rem; font-weight: 700; color: #334155; margin-bottom: 4px; }
     input {
       width: 100%; padding: 10px 12px; border-radius: 12px;
-      border: 1px solid #cbd5e1; font-family: inherit; font-size: 0.9rem;
+      border: 1px solid #cbd5e1; font-family: inherit; font-size: 0.88rem;
     }
-    input:focus { outline: none; border-color: var(--ocean-500); box-shadow: 0 0 0 3px rgba(14,165,233,0.15); }
 
-    footer { text-align: center; padding-top: 24px; border-top: 1px solid rgba(2,132,199,0.15); display: flex; flex-direction: column; gap: 12px; align-items: center; }
+    footer { text-align: center; padding-top: 20px; display: flex; flex-direction: column; gap: 12px; align-items: center; }
     .config-trigger {
       background: #fff; border: 1px solid #cbd5e1; color: #64748b;
       padding: 8px 16px; border-radius: 999px; font-size: 0.78rem; font-weight: 600; cursor: pointer;
     }
-    .config-trigger:hover { color: var(--ocean-800); border-color: var(--ocean-500); }
+    .hidden { display: none !important; }
   </style>
 </head>
 <body>
@@ -241,17 +266,14 @@
       <p>
         Medio siglo merece celebrarse a lo grande, y no hay mejor regalo que cumplir juntas un sueño pendiente: ver el mar por primera vez con nuestra princesa de 8 años. 🌴☀️
       </p>
-      <div class="hero-actions">
-        <button type="button" onclick="lanzarConfeti()" class="btn btn-white">🎉 ¡Celebrar otra vez!</button>
-        <a href="#regalos" class="btn btn-primary">🎁 Ver Tiquetes, Hotel y Planes</a>
-      </div>
+      <button type="button" onclick="lanzarConfeti()" class="btn btn-white" style="padding:10px 20px;">🎉 ¡Celebrar con confeti!</button>
     </header>
 
-    <!-- VIDEO DE FELIZ CUMPLEAÑOS (DIRECTO Y VISIBLE) -->
-    <section class="card-glass" style="text-align:center;">
-      <span class="section-kicker">Paso 1 • Mensaje Especial</span>
-      <h2 class="section-title">Un video hecho con todo el corazón</h2>
-      <p style="color:#64748b; font-size:0.9rem; margin-top:4px;">Dale Play ▶️ y sube el volumen antes de bajar a ver tus tiquetes</p>
+    <!-- 1. VIDEO INICIAL -->
+    <section class="step-card" style="text-align:center;">
+      <span class="step-kicker">Paso 1 • Primero lo primero</span>
+      <h2 class="step-title">Un video hecho con todo el corazón</h2>
+      <p style="color:#64748b; font-size:0.9rem; margin-top:4px;">Dale Play ▶️ y luego ve abriendo cada sobre sorpresa hacia abajo</p>
 
       <div class="video-box" id="videoBox">
         <iframe
@@ -262,110 +284,208 @@
         </iframe>
       </div>
 
-      <div style="margin-top:16px; display:flex; flex-direction:column; gap:10px; align-items:center;">
-        <a id="directYoutubeBtn" href="https://youtube.com/shorts/9KIHdtN567w" target="_blank" rel="noopener" class="btn btn-white" style="font-size:0.82rem; padding:9px 18px;">
-          🎬 Ver video en pantalla completa (YouTube)
+      <div style="margin-top:14px;">
+        <a id="directYoutubeBtn" href="https://youtube.com/shorts/9KIHdtN567w" target="_blank" rel="noopener" style="font-size:0.82rem; color:#0284c7; font-weight:700; text-decoration:underline;">
+          🎬 Abrir video en pantalla completa en YouTube
         </a>
-        <p style="font-size:0.82rem; color:#64748b;">
-          ¿Ya lo viste? Desliza hacia abajo para abrir tus tiquetes, el hotel y las actividades 👇
-        </p>
       </div>
     </section>
 
-    <!-- TIQUETES Y HOTEL -->
-    <section id="regalos">
-      <div style="text-align:center;">
-        <span class="section-kicker">Paso 2 • Tu Itinerario</span>
-        <h2 class="section-title">¡Nos vamos de viaje!</h2>
-        <p style="color:#64748b; font-size:0.9rem;">Toca cada tarjeta para abrir tus documentos y detalles de reserva</p>
+    <!-- 2. SOBRE SORPRESA #1: TIQUETE BOGOTÁ -> CARTAGENA -->
+    <section class="step-card">
+      <div class="step-header">
+        <div>
+          <span class="step-kicker">Paso 2 • Sorpresa #1</span>
+          <h2 class="step-title">¿A dónde nos vamos?</h2>
+        </div>
+        <span style="font-size:1.6rem;">✈️</span>
       </div>
 
-      <div class="grid-2">
-        <!-- TIQUETES -->
-        <div onclick="abrirModal('tiquetes')" class="travel-card">
+      <!-- Sobre cerrado -->
+      <div id="env-ida" onclick="revelarSobre('ida')" class="envelope-box env-blue">
+        <div class="env-icon">✉️</div>
+        <h3>Sobre Sorpresa #1</h3>
+        <p>Toca este sobre para descubrir nuestro destino y ver los tiquetes de ida...</p>
+        <span class="env-btn">Abrir Tiquete de Ida 🎟️</span>
+      </div>
+
+      <!-- Contenido revelado -->
+      <div id="rev-ida" class="revealed-box hidden">
+        <div class="boarding-head">
           <div>
-            <div class="ticket-header">
-              <div style="display:flex; align-items:center; gap:10px;">
-                <span style="font-size:1.6rem;">✈️</span>
-                <div>
-                  <div style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; opacity:0.9;">Pase de Abordar</div>
-                  <div style="font-weight:800; font-size:1.1rem;">Tiquetes Aéreos</div>
-                </div>
-              </div>
-              <span style="background:rgba(255,255,255,0.22); padding:4px 12px; border-radius:999px; font-size:0.75rem; font-weight:700;">2 Pasajeras</span>
-            </div>
-
-            <div class="ticket-body">
-              <div class="route-row">
-                <div>
-                  <div style="font-size:0.7rem; color:#94a3b8; font-weight:700;">ORIGEN</div>
-                  <div id="cardOrigen" class="airport-code">BGA</div>
-                  <div style="font-size:0.75rem; color:#64748b;">Salida</div>
-                </div>
-                <div style="padding:0 10px;">
-                  <div style="color:#0ea5e9; font-size:1.1rem;">✈️ ┄┄┄ 🌊</div>
-                  <span id="cardFechas" style="display:inline-block; margin-top:4px; background:#f0f9ff; color:#0369a1; font-size:0.72rem; font-weight:700; padding:3px 10px; border-radius:999px;">¡Maletas listas!</span>
-                </div>
-                <div>
-                  <div style="font-size:0.7rem; color:#94a3b8; font-weight:700;">DESTINO</div>
-                  <div id="cardDestino" class="airport-code dest">MAR</div>
-                  <div id="cardDestinoNombre" style="font-size:0.75rem; color:#64748b;">Playa &amp; Sol</div>
-                </div>
-              </div>
-
-              <div class="dashed-line"></div>
-
-              <div style="display:flex; justify-content:space-between; font-size:0.85rem;">
-                <div>
-                  <div style="font-size:0.72rem; color:#94a3b8;">Viajeras VIP</div>
-                  <div style="font-weight:700;">Cumpleañera (50) &amp; Princesa (8)</div>
-                </div>
-                <div style="text-align:right;">
-                  <div style="font-size:0.72rem; color:#94a3b8;">Equipaje</div>
-                  <div style="font-weight:700; color:#059669;">Incluido ✓</div>
-                </div>
-              </div>
-            </div>
+            <div style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; opacity:0.9;">Pase de Abordar • Ida</div>
+            <div style="font-weight:800; font-size:1.15rem;">Bogotá → Cartagena</div>
           </div>
-          <div class="card-cta cta-blue">🎟️ Clic aquí para ver / descargar Tiquetes →</div>
+          <span style="background:rgba(255,255,255,0.22); padding:4px 12px; border-radius:999px; font-size:0.75rem; font-weight:700;">2 Pasajeras</span>
         </div>
-
-        <!-- HOTEL -->
-        <div onclick="abrirModal('hotel')" class="travel-card">
-          <div>
-            <div class="hotel-cover">
-              <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=900&q=80" alt="Hotel frente al mar">
-              <span class="hotel-badge">🏨 Estadía Confirmada</span>
-              <div class="hotel-overlay">
-                <div style="font-size:0.72rem; color:#fde68a; font-weight:700; text-transform:uppercase;">Nuestro hogar frente a las olas</div>
-                <h3 id="cardHotelNombre" class="font-display" style="font-size:1.35rem;">Hotel Frente al Mar</h3>
-              </div>
+        <div class="boarding-body">
+          <div class="route-grid">
+            <div>
+              <div style="font-size:0.72rem; color:#94a3b8; font-weight:700;">ORIGEN</div>
+              <div class="iata">BOG</div>
+              <div style="font-size:0.8rem; color:#475569; font-weight:600;">Bogotá</div>
             </div>
-
-            <div style="padding:22px;">
-              <p style="font-size:0.88rem; color:#475569;">
-                Despertar escuchando el sonido del mar, desayuno delicioso incluido, piscina para jugar horas y salida directa a la arena suave.
-              </p>
-              <div class="tags-row">
-                <span class="tag">🌴 Frente al mar</span>
-                <span class="tag">🏊 Piscina niños</span>
-                <span class="tag">🍳 Desayunos</span>
-              </div>
+            <div style="padding:0 10px;">
+              <div style="color:#0ea5e9; font-size:1.25rem;">✈️ ┄┄┄┄ 🌊</div>
+              <span id="txtFechaIda" style="display:inline-block; margin-top:4px; background:#f0f9ff; color:#0369a1; font-size:0.75rem; font-weight:700; padding:3px 10px; border-radius:999px;">Vuelo de Ida</span>
+            </div>
+            <div>
+              <div style="font-size:0.72rem; color:#94a3b8; font-weight:700;">DESTINO</div>
+              <div class="iata highlight">CTG</div>
+              <div style="font-size:0.8rem; color:#0284c7; font-weight:700;">Cartagena</div>
             </div>
           </div>
-          <div class="card-cta cta-amber">🏨 Clic aquí para ver Reserva y Ubicación →</div>
+          <div class="dashed-sep"></div>
+          <div style="display:flex; justify-content:space-between; font-size:0.85rem;">
+            <div>
+              <span style="color:#94a3b8; font-size:0.75rem; display:block;">Pasajeras VIP</span>
+              <strong>Cumpleañera (50) &amp; Princesa (8)</strong>
+            </div>
+            <div style="text-align:right;">
+              <span style="color:#94a3b8; font-size:0.75rem; display:block;">Equipaje</span>
+              <strong style="color:#059669;">Incluido ✓</strong>
+            </div>
+          </div>
+          <div id="btnWrapIda"></div>
         </div>
       </div>
     </section>
 
-    <!-- ACTIVIDADES -->
-    <section>
-      <div style="text-align:center;">
-        <span class="section-kicker">Paso 3 • Aventuras Juntas</span>
-        <h2 class="section-title">Cosas increíbles que haremos</h2>
-        <p style="color:#64748b; font-size:0.9rem;">Toca cada actividad para ver los detalles o márcala con ❤️ como favorita</p>
+    <!-- 3. SOBRE SORPRESA #2: HOTEL ALMIRANTE -->
+    <section class="step-card">
+      <div class="step-header">
+        <div>
+          <span class="step-kicker">Paso 3 • Sorpresa #2</span>
+          <h2 class="step-title">¿Dónde nos vamos a hospedar?</h2>
+        </div>
+        <span style="font-size:1.6rem;">🏨</span>
       </div>
-      <div id="activitiesGrid" class="grid-2"></div>
+
+      <!-- Sobre cerrado -->
+      <div id="env-hotel" onclick="revelarSobre('hotel')" class="envelope-box env-teal">
+        <div class="env-icon">💌</div>
+        <h3>Sobre Sorpresa #2</h3>
+        <p>Toca aquí para conocer el hotel frente al mar donde despertaremos juntas...</p>
+        <span class="env-btn">Descubrir Hotel 🌴</span>
+      </div>
+
+      <!-- Contenido revelado -->
+      <div id="rev-hotel" class="revealed-box hidden">
+        <div class="hotel-img-wrap">
+          <img id="hotelPhoto" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=80" alt="Hotel Almirante Cartagena">
+          <div class="hotel-caption">
+            <span style="font-size:0.72rem; text-transform:uppercase; letter-spacing:1px; color:#fde68a; font-weight:800;">Bocagrande • Frente al Mar</span>
+            <h3 class="font-display" style="font-size:1.6rem;">Hotel Almirante Cartagena</h3>
+          </div>
+        </div>
+        <div class="boarding-body">
+          <p style="font-size:0.92rem; color:#475569;">
+            ¡Nos hospedaremos en el icónico <strong>Hotel Almirante</strong> en Bocagrande! A pocos pasos de la playa, con piscina perfecta para disfrutar en familia, vista al mar Caribe y toda la comodidad para celebrar tus 50 años.
+          </p>
+          <div class="tags-row">
+            <span class="tag">🌊 Frente a la playa</span>
+            <span class="tag">🏊 Piscina familiar</span>
+            <span class="tag">🍹 Zona Bocagrande</span>
+            <span class="tag">🍳 Desayuno</span>
+          </div>
+          <div id="btnWrapHotel" style="margin-top:4px;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SOBRE SORPRESA #3: BONO DE $600.000 -->
+    <section class="step-card">
+      <div class="step-header">
+        <div>
+          <span class="step-kicker">Paso 4 • Sorpresa #3</span>
+          <h2 class="step-title">Un regalo extra para disfrutar</h2>
+        </div>
+        <span style="font-size:1.6rem;">🎁</span>
+      </div>
+
+      <!-- Sobre cerrado -->
+      <div id="env-bono" onclick="revelarSobre('bono')" class="envelope-box env-gold">
+        <div class="env-icon">✨</div>
+        <h3>Sobre Sorpresa #3</h3>
+        <p>Porque un cumpleaños #50 y conocer el mar merecen darse gustos sin preocupaciones...</p>
+        <span class="env-btn">Abrir Regalo Especial 💝</span>
+      </div>
+
+      <!-- Contenido revelado -->
+      <div id="rev-bono" class="revealed-box hidden" style="border:none;">
+        <div class="voucher-card">
+          <span style="background:#f59e0b; color:#fff; font-size:0.72rem; font-weight:800; padding:4px 12px; border-radius:999px; text-transform:uppercase; letter-spacing:1px;">
+            Bono Regalo Oficial • 50 Años
+          </span>
+          <div class="voucher-amount">$600.000 COP</div>
+          <p style="font-weight:700; color:#78350f; font-size:1rem; margin-bottom:8px;">
+            Válido para disfrutar en Cartagena como ustedes quieran
+          </p>
+          <p style="font-size:0.88rem; color:#92400e; max-width:460px; margin:0 auto;">
+            Para paseos en lancha, helados frente al mar, recuerdos, cenas deliciosas o consentirse en este viaje inolvidable. 🍦🚤🛍️
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SOBRE SORPRESA #4: TIQUETE DE REGRESO CARTAGENA -> BOGOTÁ -->
+    <section class="step-card">
+      <div class="step-header">
+        <div>
+          <span class="step-kicker">Paso 5 • Sorpresa #4</span>
+          <h2 class="step-title">Tiquete de Regreso</h2>
+        </div>
+        <span style="font-size:1.6rem;">🛬</span>
+      </div>
+
+      <!-- Sobre cerrado -->
+      <div id="env-regreso" onclick="revelarSobre('regreso')" class="envelope-box env-sunset">
+        <div class="env-icon">🎫</div>
+        <h3>Sobre Sorpresa #4</h3>
+        <p>Toca para ver el pase de regreso con la maleta llena de fotos y recuerdos del mar...</p>
+        <span class="env-btn">Abrir Tiquete de Regreso ✈️</span>
+      </div>
+
+      <!-- Contenido revelado -->
+      <div id="rev-regreso" class="revealed-box hidden">
+        <div class="boarding-head return-flight">
+          <div>
+            <div style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; opacity:0.9;">Pase de Abordar • Regreso</div>
+            <div style="font-weight:800; font-size:1.15rem;">Cartagena → Bogotá</div>
+          </div>
+          <span style="background:rgba(255,255,255,0.22); padding:4px 12px; border-radius:999px; font-size:0.75rem; font-weight:700;">Vuelo Confirmado</span>
+        </div>
+        <div class="boarding-body">
+          <div class="route-grid">
+            <div>
+              <div style="font-size:0.72rem; color:#94a3b8; font-weight:700;">ORIGEN</div>
+              <div class="iata highlight">CTG</div>
+              <div style="font-size:0.8rem; color:#0284c7; font-weight:700;">Cartagena</div>
+            </div>
+            <div style="padding:0 10px;">
+              <div style="color:#0ea5e9; font-size:1.25rem;">🌴 ┄┄┄┄ ✈️</div>
+              <span id="txtFechaRegreso" style="display:inline-block; margin-top:4px; background:#f0f9ff; color:#0369a1; font-size:0.75rem; font-weight:700; padding:3px 10px; border-radius:999px;">Vuelo de Regreso</span>
+            </div>
+            <div>
+              <div style="font-size:0.72rem; color:#94a3b8; font-weight:700;">DESTINO</div>
+              <div class="iata">BOG</div>
+              <div style="font-size:0.8rem; color:#475569; font-weight:600;">Bogotá</div>
+            </div>
+          </div>
+          <div class="dashed-sep"></div>
+          <div style="display:flex; justify-content:space-between; font-size:0.85rem;">
+            <div>
+              <span style="color:#94a3b8; font-size:0.75rem; display:block;">Recuerdos</span>
+              <strong>¡Primer viaje al mar cumplido! ❤️</strong>
+            </div>
+            <div style="text-align:right;">
+              <span style="color:#94a3b8; font-size:0.75rem; display:block;">Estado</span>
+              <strong style="color:#059669;">Listo ✓</strong>
+            </div>
+          </div>
+          <div id="btnWrapRegreso"></div>
+        </div>
+      </div>
     </section>
 
     <!-- PIE DE PÁGINA -->
@@ -375,30 +495,19 @@
       </p>
       <p style="font-size:0.78rem; color:#64748b;">Hecho con mucho amor para celebrar tus 50 años 🌊🎂</p>
       <button type="button" onclick="abrirConfiguracion()" class="config-trigger">
-        ⚙️ Editar datos del regalo (Links de Video, Tiquetes y Hotel)
+        ⚙️ Agregar links de PDFs (Tiquetes, Hotel y Fechas)
       </button>
     </footer>
 
   </main>
 
-  <!-- MODAL DETALLES -->
-  <div id="detailModal" class="modal-backdrop" onclick="if(event.target===this) cerrarModal()">
-    <div class="modal-box">
-      <div id="modalHeader" class="modal-head">
-        <h3 id="modalTitle" class="font-display" style="font-size:1.4rem;">Detalles</h3>
-        <button type="button" onclick="cerrarModal()" class="modal-close">✕</button>
-      </div>
-      <div id="modalBody" class="modal-content"></div>
-    </div>
-  </div>
-
   <!-- MODAL CONFIGURACIÓN -->
   <div id="configModal" class="modal-backdrop">
-    <div class="modal-box" style="max-width:560px;">
-      <div class="modal-head" style="background:#0f172a;">
+    <div class="modal-box">
+      <div class="modal-head">
         <div>
-          <h3 class="font-display" style="font-size:1.25rem;">Personalizar Tarjeta de Regalo</h3>
-          <p style="font-size:0.75rem; color:#cbd5e1;">Pega los enlaces reales y copia el link listo para WhatsApp</p>
+          <h3 class="font-display" style="font-size:1.25rem;">Configurar Links y Fechas</h3>
+          <p style="font-size:0.75rem; color:#cbd5e1;">Pega los enlaces de Google Drive o reservas y copia el link listo</p>
         </div>
         <button type="button" onclick="cerrarConfiguracion()" class="modal-close">✕</button>
       </div>
@@ -406,45 +515,37 @@
         <div class="form-grid">
           <div class="form-full">
             <label>Título Principal</label>
-            <input id="cfgTitle" type="text" placeholder="Ej: ¡Felices 50 Años!">
+            <input id="cfgTitle" type="text" placeholder="¡Feliz Cumpleaños #50!">
           </div>
           <div>
-            <label>Ciudad Origen (3 letras)</label>
-            <input id="cfgOrigen" type="text" maxlength="4" placeholder="Ej: BGA / BOG">
+            <label>Fecha Vuelo Ida (BOG → CTG)</label>
+            <input id="cfgFechaIda" type="text" placeholder="Ej: 20 Nov • 8:30 AM">
           </div>
           <div>
-            <label>Destino (Ciudad / Playa)</label>
-            <input id="cfgDestinoNombre" type="text" placeholder="Ej: Santa Marta / San Andrés">
-          </div>
-          <div>
-            <label>Código Destino (3 letras)</label>
-            <input id="cfgDestino" type="text" maxlength="4" placeholder="Ej: SMR / ADZ">
-          </div>
-          <div>
-            <label>Fechas del viaje</label>
-            <input id="cfgFechas" type="text" placeholder="Ej: 15 al 19 de Mayo">
+            <label>Fecha Vuelo Regreso (CTG → BOG)</label>
+            <input id="cfgFechaRegreso" type="text" placeholder="Ej: 24 Nov • 6:15 PM">
           </div>
           <div class="form-full">
-            <label>🎬 Link del Video de Feliz Cumpleaños (YouTube)</label>
-            <input id="cfgVideo" type="url" placeholder="https://youtube.com/shorts/9KIHdtN567w">
+            <label>🎟️ Link Tiquete Ida (Google Drive / PDF)</label>
+            <input id="cfgUrlIda" type="url" placeholder="https://drive.google.com/...">
           </div>
           <div class="form-full">
-            <label>🎟️ Link de los Tiquetes (Google Drive, PDF o Aerolínea)</label>
-            <input id="cfgTiquetesUrl" type="url" placeholder="https://drive.google.com/...">
+            <label>🏨 Link Reserva o Web Hotel Almirante</label>
+            <input id="cfgUrlHotel" type="url" placeholder="https://www.hotelalmirantecartagena.com.co/...">
           </div>
-          <div>
-            <label>🏨 Nombre del Hotel</label>
-            <input id="cfgHotelNombre" type="text" placeholder="Ej: Hotel Zuana Beach">
+          <div class="form-full">
+            <label>🖼️ Link Foto Personalizada Hotel (Opcional)</label>
+            <input id="cfgImgHotel" type="url" placeholder="Dejar vacío para usar foto de playa/resort">
           </div>
-          <div>
-            <label>🔗 Link del Hotel (Booking / Maps)</label>
-            <input id="cfgHotelUrl" type="url" placeholder="https://...">
+          <div class="form-full">
+            <label>🛬 Link Tiquete Regreso (Google Drive / PDF)</label>
+            <input id="cfgUrlRegreso" type="url" placeholder="https://drive.google.com/...">
           </div>
         </div>
 
         <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:8px;">
           <button type="button" onclick="guardarConfiguracion(false)" class="btn btn-white" style="border-radius:12px;">Guardar aquí</button>
-          <button type="button" onclick="guardarConfiguracion(true)" class="btn btn-primary" style="border-radius:12px;">📋 Guardar y Copiar Link Listo</button>
+          <button type="button" onclick="guardarConfiguracion(true)" class="btn btn-blue" style="width:auto;">📋 Guardar y Copiar Link Listo</button>
         </div>
       </div>
     </div>
@@ -453,57 +554,15 @@
   <script>
     const defaultData = {
       title: "¡Feliz Cumpleaños #50!",
-      origen: "BGA",
-      destino: "MAR",
-      destinoNombre: "Playa & Sol",
-      fechas: "¡Maletas listas!",
-      videoUrl: "https://youtube.com/shorts/9KIHdtN567w",
-      tiquetesUrl: "",
-      hotelNombre: "Hotel Frente al Mar",
-      hotelUrl: ""
+      fechaIda: "Bogotá → Cartagena",
+      fechaRegreso: "Cartagena → Bogotá",
+      urlIda: "",
+      urlHotel: "https://www.hotelalmirantecartagena.com.co/",
+      imgHotel: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=80",
+      urlRegreso: ""
     };
 
-    const actividades = [
-      {
-        id: "primer-bano",
-        emoji: "🌊",
-        titulo: "El Primer Saludo al Mar",
-        badge: "Momento Inolvidable",
-        resumen: "Caminar descalzas por la orilla, sentir las primeras olas en los pies y tomar la foto oficial de sus 8 años conociendo el océano.",
-        detalles: "Llevaremos cámara lista para grabar la reacción exacta cuando vea lo inmenso que es el mar. Ideal hacerlo en la mañana cuando el agua está calientita y tranquila.",
-        tip: "Llevar vestido de baño puesto desde el hotel y bloqueador solar."
-      },
-      {
-        id: "castillos",
-        emoji: "🏰",
-        titulo: "Concurso de Castillos de Arena",
-        badge: "Diversión 8 Años",
-        resumen: "Tarde de baldes, palitas, búsqueda de caracoles y construcción del castillo más grande de toda la playa.",
-        detalles: "Un plan tranquilo para disfrutar en familia bajo la sombrilla mientras la peque juega con la arena húmeda y colecciona conchitas de recuerdo.",
-        tip: "Llevar una bolsita de tela para guardar los caracoles más bonitos."
-      },
-      {
-        id: "lancha",
-        emoji: "🚤",
-        titulo: "Paseo en Lancha & Pececitos",
-        badge: "Aventura en el Agua",
-        resumen: "Un recorrido suave en lancha por aguas cristalinas para ver peces de colores desde el bote o con careta.",
-        detalles: "Un paseo seguro con chalecos salvavidas para todas, perfecto para sentir la brisa del mar y conocer playas escondidas.",
-        tip: "Llevar gafas de sol, gorra bien ajustada y una toalla extra."
-      },
-      {
-        id: "cena-50",
-        emoji: "🥂",
-        titulo: "Cena Especial de los 50 Años",
-        badge: "Celebración VIP",
-        resumen: "Una noche mágica frente al mar con comida deliciosa, brindis por estos 50 años y postre con velita.",
-        detalles: "El momento central para agradecer por la vida, pedir los deseos de los 50 y celebrar que los sueños sí se cumplen.",
-        tip: "Outfit especial de playa para las fotos nocturnas del recuerdo."
-      }
-    ];
-
     let appData = { ...defaultData };
-    let favoritos = JSON.parse(localStorage.getItem("regalo50_favs") || "[]");
 
     function cargarDatos() {
       const params = new URLSearchParams(window.location.search);
@@ -514,170 +573,77 @@
           appData = { ...defaultData, ...decoded };
         } catch (e) {}
       } else {
-        const saved = localStorage.getItem("regalo50_data");
-        if (saved) {
-          const parsed = JSON.parse(saved);
-          appData = { ...defaultData, ...parsed };
-          if (!appData.videoUrl || appData.videoUrl.includes("inS22_2C8mA")) {
-            appData.videoUrl = defaultData.videoUrl;
-          }
-        }
+        const saved = localStorage.getItem("regalo50_ctg");
+        if (saved) appData = { ...defaultData, ...JSON.parse(saved) };
       }
-      aplicarDatosEnPantalla();
+      aplicarDatos();
     }
 
-    function aplicarDatosEnPantalla() {
-      document.getElementById("heroTitle").textContent = appData.title;
-      document.getElementById("cardOrigen").textContent = appData.origen || "BGA";
-      document.getElementById("cardDestino").textContent = appData.destino || "MAR";
-      document.getElementById("cardDestinoNombre").textContent = appData.destinoNombre || "Playa & Sol";
-      document.getElementById("cardFechas").textContent = appData.fechas || "¡Maletas listas!";
-      document.getElementById("cardHotelNombre").textContent = appData.hotelNombre || "Hotel Frente al Mar";
+    function aplicarDatos() {
+      document.getElementById("heroTitle").textContent = appData.title || defaultData.title;
+      document.getElementById("txtFechaIda").textContent = appData.fechaIda || "Vuelo de Ida";
+      document.getElementById("txtFechaRegreso").textContent = appData.fechaRegreso || "Vuelo de Regreso";
 
-      const targetUrl = (appData.videoUrl && appData.videoUrl.trim()) ? appData.videoUrl.trim() : defaultData.videoUrl;
-      document.getElementById("directYoutubeBtn").href = targetUrl;
-
-      const ytMatch = targetUrl.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
-      if (ytMatch) {
-        document.getElementById("videoBox").innerHTML = `
-          <iframe
-            src="https://www.youtube.com/embed/${ytMatch[1]}?rel=0&playsinline=1"
-            title="Video Feliz Cumpleaños"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>`;
+      if (appData.imgHotel && appData.imgHotel.trim()) {
+        document.getElementById("hotelPhoto").src = appData.imgHotel.trim();
       }
+
+      document.getElementById("btnWrapIda").innerHTML = appData.urlIda
+        ? `<a href="${appData.urlIda}" target="_blank" rel="noopener" class="btn btn-blue">📄 Ver / Descargar Tiquete Bogotá → Cartagena</a>`
+        : `<button type="button" onclick="abrirConfiguracion()" class="btn btn-blue" style="background:#0ea5e9;">📎 Agregar Link del Tiquete de Ida</button>`;
+
+      document.getElementById("btnWrapHotel").innerHTML = appData.urlHotel
+        ? `<a href="${appData.urlHotel}" target="_blank" rel="noopener" class="btn btn-amber">🌐 Ver Hotel Almirante &amp; Reserva</a>`
+        : ``;
+
+      document.getElementById("btnWrapRegreso").innerHTML = appData.urlRegreso
+        ? `<a href="${appData.urlRegreso}" target="_blank" rel="noopener" class="btn btn-blue">📄 Ver / Descargar Tiquete Cartagena → Bogotá</a>`
+        : `<button type="button" onclick="abrirConfiguracion()" class="btn btn-blue" style="background:#0ea5e9;">📎 Agregar Link del Tiquete de Regreso</button>`;
     }
 
-    function renderActividades() {
-      const grid = document.getElementById("activitiesGrid");
-      grid.innerHTML = actividades.map(act => {
-        const isFav = favoritos.includes(act.id);
-        return `
-          <div onclick="abrirModalActividad('${act.id}')" class="activity-card">
-            <div>
-              <div class="act-top">
-                <div style="display:flex; align-items:center; gap:12px;">
-                  <div class="act-icon">${act.emoji}</div>
-                  <div>
-                    <span class="act-badge">${act.badge}</span>
-                    <h3 style="font-size:1.05rem; color:#0f172a;">${act.titulo}</h3>
-                  </div>
-                </div>
-                <button type="button" onclick="toggleFavorito(event, '${act.id}')" class="fav-btn">${isFav ? "❤️" : "🤍"}</button>
-              </div>
-              <p style="font-size:0.88rem; color:#475569; margin-top:12px;">${act.resumen}</p>
-            </div>
-            <div style="padding-top:10px; border-top:1px solid #f1f5f9; font-size:0.8rem; font-weight:700; color:#0284c7; display:flex; justify-content:space-between;">
-              <span>Ver detalles del plan</span>
-              <span>→</span>
-            </div>
-          </div>
-        `;
-      }).join("");
+    function revelarSobre(cual) {
+      document.getElementById("env-" + cual).classList.add("hidden");
+      document.getElementById("rev-" + cual).classList.remove("hidden");
+      lanzarConfeti();
     }
 
-    function toggleFavorito(event, id) {
-      event.stopPropagation();
-      if (favoritos.includes(id)) {
-        favoritos = favoritos.filter(f => f !== id);
-      } else {
-        favoritos.push(id);
-        if (typeof confetti === "function") confetti({ particleCount: 30, spread: 50, origin: { y: 0.7 } });
-      }
-      localStorage.setItem("regalo50_favs", JSON.stringify(favoritos));
-      renderActividades();
+    function lanzarConfeti() {
+      if (typeof confetti !== "function") return;
+      confetti({
+        particleCount: 85,
+        spread: 75,
+        origin: { y: 0.6 },
+        colors: ['#0ea5e9', '#f59e0b', '#10b981', '#f43f5e']
+      });
     }
-
-    function abrirModal(tipo) {
-      const modal = document.getElementById("detailModal");
-      const header = document.getElementById("modalHeader");
-      const title = document.getElementById("modalTitle");
-      const body = document.getElementById("modalBody");
-
-      if (tipo === "tiquetes") {
-        header.style.background = "linear-gradient(90deg, #0284c7, #38bdf8)";
-        title.textContent = "✈️ Tus Tiquetes de Viaje";
-        const tieneLink = appData.tiquetesUrl && appData.tiquetesUrl.trim() !== "";
-        body.innerHTML = `
-          <div style="background:#f0f9ff; padding:16px; border-radius:16px; font-size:0.9rem; display:flex; flex-direction:column; gap:8px;">
-            <div style="display:flex; justify-content:space-between;"><span>Ruta:</span><strong>${appData.origen} → ${appData.destinoNombre} (${appData.destino})</strong></div>
-            <div style="display:flex; justify-content:space-between;"><span>Fecha:</span><strong>${appData.fechas}</strong></div>
-            <div style="display:flex; justify-content:space-between;"><span>Pasajeras:</span><strong>Cumpleañera (50) & Princesa (8)</strong></div>
-          </div>
-          <p style="font-size:0.9rem; color:#475569;">
-            ${tieneLink ? "Tus pases de abordar están listos. Toca el botón para abrir el documento:" : "Aún no has pegado el link de tus tiquetes. Toca el botón de abajo para agregarlo:"}
-          </p>
-          ${tieneLink
-            ? `<a href="${appData.tiquetesUrl}" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%; border-radius:14px;">📄 Abrir / Descargar Tiquetes Ahora</a>`
-            : `<button type="button" onclick="cerrarModal(); abrirConfiguracion();" class="btn btn-primary" style="width:100%; border-radius:14px; background:#f59e0b;">⚙️ Agregar Link de Tiquetes</button>`
-          }
-        `;
-      } else if (tipo === "hotel") {
-        header.style.background = "linear-gradient(90deg, #f59e0b, #ea580c)";
-        title.textContent = `🏨 ${appData.hotelNombre}`;
-        const tieneLink = appData.hotelUrl && appData.hotelUrl.trim() !== "";
-        body.innerHTML = `
-          <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80" style="width:100%; height:160px; object-fit:cover; border-radius:16px;" alt="Hotel">
-          <p style="font-size:0.9rem; color:#475569;">Todo listo para descansar frente al mar y disfrutar de la piscina.</p>
-          ${tieneLink
-            ? `<a href="${appData.hotelUrl}" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%; border-radius:14px; background:#f59e0b;">🌐 Ver Fotos, Reserva y Mapa del Hotel</a>`
-            : `<button type="button" onclick="cerrarModal(); abrirConfiguracion();" class="btn btn-primary" style="width:100%; border-radius:14px;">⚙️ Agregar Link del Hotel</button>`
-          }
-        `;
-      }
-      modal.classList.add("open");
-    }
-
-    function abrirModalActividad(id) {
-      const act = actividades.find(a => a.id === id);
-      if (!act) return;
-      const modal = document.getElementById("detailModal");
-      const header = document.getElementById("modalHeader");
-      header.style.background = "linear-gradient(90deg, #0d9488, #0284c7)";
-      document.getElementById("modalTitle").textContent = `${act.emoji} ${act.titulo}`;
-      document.getElementById("modalBody").innerHTML = `
-        <span class="act-badge" style="align-self:flex-start;">${act.badge}</span>
-        <p style="font-size:0.95rem; color:#334155;">${act.detalles}</p>
-        <div style="background:#fffbeb; border:1px solid #fde68a; padding:14px; border-radius:14px; font-size:0.88rem; color:#78350f;">
-          <strong>🎒 Consejo para la maleta:</strong> ${act.tip}
-        </div>
-        <button type="button" onclick="cerrarModal()" class="btn btn-primary" style="width:100%; border-radius:14px; background:#0f172a;">¡Qué emoción, listo!</button>
-      `;
-      modal.classList.add("open");
-    }
-
-    function cerrarModal() { document.getElementById("detailModal").classList.remove("open"); }
 
     function abrirConfiguracion() {
       document.getElementById("cfgTitle").value = appData.title || "";
-      document.getElementById("cfgOrigen").value = appData.origen || "";
-      document.getElementById("cfgDestino").value = appData.destino || "";
-      document.getElementById("cfgDestinoNombre").value = appData.destinoNombre || "";
-      document.getElementById("cfgFechas").value = appData.fechas || "";
-      document.getElementById("cfgVideo").value = appData.videoUrl || defaultData.videoUrl;
-      document.getElementById("cfgTiquetesUrl").value = appData.tiquetesUrl || "";
-      document.getElementById("cfgHotelNombre").value = appData.hotelNombre || "";
-      document.getElementById("cfgHotelUrl").value = appData.hotelUrl || "";
+      document.getElementById("cfgFechaIda").value = appData.fechaIda || "";
+      document.getElementById("cfgFechaRegreso").value = appData.fechaRegreso || "";
+      document.getElementById("cfgUrlIda").value = appData.urlIda || "";
+      document.getElementById("cfgUrlHotel").value = appData.urlHotel || "";
+      document.getElementById("cfgImgHotel").value = appData.imgHotel || "";
+      document.getElementById("cfgUrlRegreso").value = appData.urlRegreso || "";
       document.getElementById("configModal").classList.add("open");
     }
 
-    function cerrarConfiguracion() { document.getElementById("configModal").classList.remove("open"); }
+    function cerrarConfiguracion() {
+      document.getElementById("configModal").classList.remove("open");
+    }
 
     function guardarConfiguracion(copiarLink) {
       appData = {
         title: document.getElementById("cfgTitle").value.trim() || defaultData.title,
-        origen: document.getElementById("cfgOrigen").value.trim().toUpperCase() || defaultData.origen,
-        destino: document.getElementById("cfgDestino").value.trim().toUpperCase() || defaultData.destino,
-        destinoNombre: document.getElementById("cfgDestinoNombre").value.trim() || defaultData.destinoNombre,
-        fechas: document.getElementById("cfgFechas").value.trim() || defaultData.fechas,
-        videoUrl: document.getElementById("cfgVideo").value.trim() || defaultData.videoUrl,
-        tiquetesUrl: document.getElementById("cfgTiquetesUrl").value.trim(),
-        hotelNombre: document.getElementById("cfgHotelNombre").value.trim() || defaultData.hotelNombre,
-        hotelUrl: document.getElementById("cfgHotelUrl").value.trim()
+        fechaIda: document.getElementById("cfgFechaIda").value.trim() || defaultData.fechaIda,
+        fechaRegreso: document.getElementById("cfgFechaRegreso").value.trim() || defaultData.fechaRegreso,
+        urlIda: document.getElementById("cfgUrlIda").value.trim(),
+        urlHotel: document.getElementById("cfgUrlHotel").value.trim() || defaultData.urlHotel,
+        imgHotel: document.getElementById("cfgImgHotel").value.trim() || defaultData.imgHotel,
+        urlRegreso: document.getElementById("cfgUrlRegreso").value.trim()
       };
-      localStorage.setItem("regalo50_data", JSON.stringify(appData));
-      aplicarDatosEnPantalla();
+      localStorage.setItem("regalo50_ctg", JSON.stringify(appData));
+      aplicarDatos();
       cerrarConfiguracion();
 
       if (copiarLink) {
@@ -685,22 +651,16 @@
         const baseUrl = window.location.href.split("?")[0];
         const shareUrl = `${baseUrl}?d=${encoded}`;
         navigator.clipboard.writeText(shareUrl).then(() => {
-          alert("✅ ¡Listo! La URL personalizada se copió.\n\nYa puedes pegarla y enviarla por WhatsApp.");
+          alert("✅ ¡Listo! La URL personalizada con todos los sobres se copió.\n\nYa puedes pegarla y enviarla por WhatsApp.");
         }).catch(() => {
-          prompt("Copia este enlace listo para enviar por WhatsApp:", shareUrl);
+          prompt("Copia este enlace listo para WhatsApp:", shareUrl);
         });
       }
     }
 
-    function lanzarConfeti() {
-      if (typeof confetti !== "function") return;
-      confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 }, colors: ['#0ea5e9', '#f59e0b', '#10b981', '#f43f5e'] });
-    }
-
     window.addEventListener("DOMContentLoaded", () => {
       cargarDatos();
-      renderActividades();
-      setTimeout(lanzarConfeti, 600);
+      setTimeout(lanzarConfeti, 500);
     });
   </script>
 </body>
