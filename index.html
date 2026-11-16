@@ -4,93 +4,730 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>¡Felices 50 Años! Un Viaje al Mar</title>
-  <script>
-    window.tailwind = window.tailwind || {};
-    window.tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            display: ['"Playfair Display"', 'serif'],
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-          },
-          colors: {
-            ocean: {
-              50: '#f0f9ff',
-              100: '#e0f2fe',
-              400: '#38bdf8',
-              500: '#0ea5e9',
-              600: '#0284c7',
-              800: '#075985',
-              900: '#0c4a6e',
-            },
-            sand: {
-              50: '#fdfbf7',
-              100: '#fbf5e9',
-              200: '#f5e6c8',
-              500: '#d97706',
-            }
-          }
-        }
-      }
-    };
-  </script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <style>
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
+    :root {
+      --ocean-50: #f0f9ff;
+      --ocean-100: #e0f2fe;
+      --ocean-500: #0ea5e9;
+      --ocean-600: #0284c7;
+      --ocean-800: #075985;
+      --ocean-900: #0c4a6e;
+      --sand-100: #fbf5e9;
+      --amber-400: #fbbf24;
+      --amber-500: #f59e0b;
+      --text-main: #1e293b;
+      --text-muted: #475569;
     }
-    .animate-float {
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(180deg, #e0f2fe 0%, #f0f9ff 45%, #fbf5e9 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    .font-display { font-family: 'Playfair Display', Georgia, serif; }
+
+    .top-banner {
+      background: linear-gradient(90deg, #075985, #0284c7, #f59e0b);
+      color: #fff;
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 32px 16px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 44px;
+    }
+
+    /* HERO */
+    .hero { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 18px; padding-top: 8px; }
+    .pill-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px; border-radius: 999px;
+      background: #fef3c7; color: #92400e;
+      font-weight: 700; font-size: 0.82rem;
+      border: 1px solid #fde68a;
       animation: float 4s ease-in-out infinite;
     }
-    .glass-card {
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.6);
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      color: var(--ocean-900);
+      line-height: 1.15;
     }
-    .boarding-pass-cutout {
+    .hero p {
+      max-width: 640px;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 4px; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 12px 22px; border-radius: 999px;
+      font-weight: 700; font-size: 0.9rem; text-decoration: none;
+      cursor: pointer; border: none; transition: transform 0.15s, box-shadow 0.2s, background 0.2s;
+    }
+    .btn:active { transform: scale(0.97); }
+    .btn-white { background: #fff; color: var(--ocean-800); box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid #e0f2fe; }
+    .btn-primary { background: var(--ocean-600); color: #fff; box-shadow: 0 6px 16px rgba(2,132,199,0.28); }
+    .btn-primary:hover { background: var(--ocean-800); }
+
+    /* SECCIONES */
+    .card-glass {
+      background: rgba(255, 255, 255, 0.94);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 12px 32px rgba(12, 74, 110, 0.08);
+      border: 1px solid #fff;
+    }
+    .section-kicker { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--ocean-600); }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 1.85rem; color: #0f172a; margin-top: 2px; }
+
+    /* SOBRE DE VIDEO */
+    .video-envelope {
+      margin-top: 20px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #075985 0%, #0284c7 55%, #0d9488 100%);
+      color: #fff;
+      padding: 48px 24px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s, filter 0.2s;
+      box-shadow: inset 0 0 30px rgba(0,0,0,0.12);
+    }
+    .video-envelope:hover { filter: brightness(1.05); transform: translateY(-2px); }
+    .play-circle {
+      width: 74px; height: 74px; margin: 0 auto 16px;
+      border-radius: 50%; background: rgba(255,255,255,0.22);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .video-envelope h3 { font-family: 'Playfair Display', serif; font-size: 1.65rem; margin-bottom: 8px; }
+    .video-envelope p { color: #e0f2fe; max-width: 440px; margin: 0 auto 18px; font-size: 0.95rem; }
+    .btn-gold { background: var(--amber-400); color: #0f172a; padding: 10px 22px; border-radius: 999px; font-weight: 800; font-size: 0.88rem; display: inline-block; }
+
+    .video-wrapper {
+      margin-top: 20px;
       position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
-    .boarding-pass-cutout::before,
-    .boarding-pass-cutout::after {
-      content: '';
-      position: absolute;
-      width: 24px;
-      height: 24px;
-      background-color: #f0f9ff;
-      border-radius: 50%;
-      top: 50%;
-      transform: translateY(-50%);
+    .video-wrapper iframe, .video-wrapper video {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
     }
-    .boarding-pass-cutout::before { left: -12px; }
-    .boarding-pass-cutout::after { right: -12px; }
+
+    /* GRID DE TIQUETES Y HOTEL */
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 20px; }
+
+    .travel-card {
+      background: #fff;
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.07);
+      border: 1px solid #e2e8f0;
+      display: flex; flex-direction: column; justify-content: space-between;
+      cursor: pointer;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .travel-card:hover { transform: translateY(-5px); box-shadow: 0 18px 36px rgba(12, 74, 110, 0.14); }
+
+    .ticket-header {
+      background: linear-gradient(90deg, #0284c7, #38bdf8);
+      color: #fff; padding: 20px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .ticket-body { padding: 24px; display: flex; flex-direction: column; gap: 18px; }
+    .route-row { display: flex; align-items: center; justify-content: space-between; text-align: center; }
+    .airport-code { font-size: 1.75rem; font-weight: 800; color: #0f172a; }
+    .airport-code.dest { color: var(--ocean-600); }
+    .dashed-line { border-top: 2px dashed #e2e8f0; margin: 4px 0; }
+
+    .hotel-cover { position: relative; height: 185px; overflow: hidden; }
+    .hotel-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+    .travel-card:hover .hotel-cover img { transform: scale(1.05); }
+    .hotel-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.1));
+      display: flex; flex-direction: column; justify-content: flex-end; padding: 18px 22px; color: #fff;
+    }
+    .hotel-badge {
+      position: absolute; top: 12px; right: 12px;
+      background: var(--amber-400); color: #0f172a;
+      font-size: 0.75rem; font-weight: 800; padding: 5px 12px; border-radius: 999px;
+    }
+    .tags-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .tag { font-size: 0.78rem; font-weight: 600; padding: 4px 10px; border-radius: 8px; background: #f1f5f9; color: #334155; }
+
+    .card-cta {
+      margin: 0 22px 22px;
+      padding: 13px;
+      border-radius: 14px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.88rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .cta-blue { background: #f0f9ff; color: #0369a1; }
+    .travel-card:hover .cta-blue { background: #0284c7; color: #fff; }
+    .cta-amber { background: #fffbeb; color: #b45309; }
+    .travel-card:hover .cta-amber { background: #f59e0b; color: #fff; }
+
+    /* ACTIVIDADES */
+    .activity-card {
+      background: #fff; border-radius: 22px; padding: 22px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05); border: 1px solid #f1f5f9;
+      display: flex; flex-direction: column; justify-content: space-between; gap: 14px;
+      cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .activity-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,0.09); }
+    .act-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+    .act-icon {
+      width: 48px; height: 48px; border-radius: 16px; background: #f0f9ff;
+      display: flex; align-items: center; justify-content: center; font-size: 1.6rem; flex-shrink: 0;
+    }
+    .act-badge { font-size: 0.7rem; font-weight: 800; padding: 3px 10px; border-radius: 999px; background: #e0f2fe; color: #075985; display: inline-block; margin-bottom: 4px; }
+    .fav-btn { background: none; border: none; font-size: 1.35rem; cursor: pointer; padding: 4px; }
+
+    /* MODALES */
+    .modal-backdrop {
+      position: fixed; inset: 0; z-index: 100;
+      background: rgba(15, 23, 42, 0.65); backdrop-filter: blur(4px);
+      display: none; align-items: center; justify-content: center; padding: 16px; overflow-y: auto;
+    }
+    .modal-backdrop.open { display: flex; }
+    .modal-box {
+      background: #fff; border-radius: 26px; max-width: 520px; width: 100%;
+      overflow: hidden; box-shadow: 0 24px 48px rgba(0,0,0,0.25);
+    }
+    .modal-head {
+      padding: 20px 24px; background: var(--ocean-600); color: #fff;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .modal-close {
+      width: 32px; height: 32px; border-radius: 50%; border: none;
+      background: rgba(255,255,255,0.22); color: #fff; font-weight: 700; cursor: pointer;
+    }
+    .modal-content { padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+
+    /* FORMULARIO CONFIG */
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-full { grid-column: 1 / -1; }
+    label { display: block; font-size: 0.8rem; font-weight: 700; color: #334155; margin-bottom: 4px; }
+    input {
+      width: 100%; padding: 10px 12px; border-radius: 12px;
+      border: 1px solid #cbd5e1; font-family: inherit; font-size: 0.9rem;
+    }
+    input:focus { outline: none; border-color: var(--ocean-500); box-shadow: 0 0 0 3px rgba(14,165,233,0.15); }
+
+    footer { text-align: center; padding-top: 24px; border-top: 1px solid rgba(2,132,199,0.15); display: flex; flex-direction: column; gap: 12px; align-items: center; }
+    .config-trigger {
+      background: #fff; border: 1px solid #cbd5e1; color: #64748b;
+      padding: 8px 16px; border-radius: 999px; font-size: 0.78rem; font-weight: 600; cursor: pointer;
+    }
+    .config-trigger:hover { color: var(--ocean-800); border-color: var(--ocean-500); }
+    .hidden { display: none !important; }
   </style>
 </head>
-<body class="bg-gradient-to-b from-ocean-100 via-ocean-50 to-sand-100 text-slate-800 font-sans min-h-screen selection:bg-ocean-500 selection:text-white">
+<body>
 
-  <!-- Barra superior decorativa -->
-  <div class="bg-gradient-to-r from-ocean-800 via-ocean-600 to-amber-500 text-white text-center py-2.5 px-4 text-sm font-medium tracking-wide shadow-sm">
-    ✨ Edición Especial: 50 Años & La Primera Vez Frente al Mar ✨
+  <div class="top-banner">
+    ✨ Edición Especial: 50 Años &amp; La Primera Vez Frente al Mar ✨
   </div>
 
-  <!-- Contenedor Principal -->
-  <main class="max-w-4xl mx-auto px-4 sm:px-6 pt-8 pb-24 space-y-12">
+  <main class="container">
 
-    <!-- HERO / PORTADA -->
-    <header class="text-center space-y-5 relative pt-4">
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 text-amber-800 font-semibold text-xs sm:text-sm border border-amber-200 shadow-sm animate-float">
+    <!-- PORTADA -->
+    <header class="hero">
+      <div class="pill-badge">
         <span>🎂 50 Años de Vida</span>
         <span>•</span>
         <span>🌊 ¡Por fin conoceremos el mar!</span>
       </div>
+      <h1 id="heroTitle">¡Feliz Cumpleaños #50!</h1>
+      <p>
+        Medio siglo merece celebrarse a lo grande, y no hay mejor regalo que cumplir juntas un sueño pendiente: ver el mar por primera vez con nuestra princesa de 8 años. 🌴☀️
+      </p>
+      <div class="hero-actions">
+        <button onclick="lanzarConfeti()" class="btn btn-white">🎉 ¡Celebrar otra vez!</button>
+        <a href="#regalos" class="btn btn-primary">🎁 Ver Tiquetes, Hotel y Planes</a>
+      </div>
+    </header>
 
-      <h1 id="heroTitle" class="font-display text-4xl sm:text-6xl font-bold text-ocean-900 leading-tight">
-        ¡Feliz Cumpleaños #50!
-      </h1>
+    <!-- VIDEO SORPRESA -->
+    <section class="card-glass">
+      <span class="section-kicker">Paso 1 • Mensaje Especial</span>
+      <h2 class="section-title">Un video hecho con todo el corazón</h2>
 
-      <p id="heroSubtitle" class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-        Medio siglo merece celebrarse a lo grande, y no hay mejor regalo que cumplir juntas un sueño pendiente: ver el mar
+      <div id="videoEnvelope" onclick="abrirVideo()" class="video-envelope">
+        <div class="play-circle">▶️</div>
+        <h3>Toca aquí para abrir tu video sorpresa</h3>
+        <p>Prepara una sonrisa gigante antes de descubrir a dónde nos vamos...</p>
+        <span class="btn-gold">Abrir Sorpresa 🎬</span>
+      </div>
+
+      <div id="videoPlayerContainer" class="hidden">
+        <div class="video-wrapper" id="videoWrapper"></div>
+        <p style="text-align:center; font-size:0.82rem; color:#64748b; margin-top:10px;">
+          Desliza hacia abajo para revisar tus tiquetes, el hotel y las actividades 👇
+        </p>
+      </div>
+    </section>
+
+    <!-- TIQUETES Y HOTEL -->
+    <section id="regalos">
+      <div style="text-align:center;">
+        <span class="section-kicker">Paso 2 • Tu Itinerario</span>
+        <h2 class="section-title">¡Nos vamos de viaje!</h2>
+        <p style="color:#64748b; font-size:0.9rem;">Toca cada tarjeta para abrir tus documentos y detalles de reserva</p>
+      </div>
+
+      <div class="grid-2">
+        <!-- TIQUETES -->
+        <div onclick="abrirModal('tiquetes')" class="travel-card">
+          <div>
+            <div class="ticket-header">
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span style="font-size:1.6rem;">✈️</span>
+                <div>
+                  <div style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; opacity:0.9;">Pase de Abordar</div>
+                  <div style="font-weight:800; font-size:1.1rem;">Tiquetes Aéreos</div>
+                </div>
+              </div>
+              <span style="background:rgba(255,255,255,0.22); padding:4px 12px; border-radius:999px; font-size:0.75rem; font-weight:700;">2 Pasajeras</span>
+            </div>
+
+            <div class="ticket-body">
+              <div class="route-row">
+                <div>
+                  <div style="font-size:0.7rem; color:#94a3b8; font-weight:700;">ORIGEN</div>
+                  <div id="cardOrigen" class="airport-code">BOG</div>
+                  <div style="font-size:0.75rem; color:#64748b;">Salida</div>
+                </div>
+                <div style="padding:0 10px;">
+                  <div style="color:#0ea5e9; font-size:1.1rem;">✈️ ┄┄┄ 🌊</div>
+                  <span id="cardFechas" style="display:inline-block; margin-top:4px; background:#f0f9ff; color:#0369a1; font-size:0.72rem; font-weight:700; padding:3px 10px; border-radius:999px;">¡Maletas listas!</span>
+                </div>
+                <div>
+                  <div style="font-size:0.7rem; color:#94a3b8; font-weight:700;">DESTINO</div>
+                  <div id="cardDestino" class="airport-code dest">MAR</div>
+                  <div id="cardDestinoNombre" style="font-size:0.75rem; color:#64748b;">Paraíso Tropical</div>
+                </div>
+              </div>
+
+              <div class="dashed-line"></div>
+
+              <div style="display:flex; justify-content:space-between; font-size:0.85rem;">
+                <div>
+                  <div style="font-size:0.72rem; color:#94a3b8;">Viajeras VIP</div>
+                  <div style="font-weight:700;">Cumpleañera (50) &amp; Princesa (8)</div>
+                </div>
+                <div style="text-align:right;">
+                  <div style="font-size:0.72rem; color:#94a3b8;">Equipaje</div>
+                  <div style="font-weight:700; color:#059669;">Incluido ✓</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-cta cta-blue">🎟️ Clic aquí para ver / descargar Tiquetes →</div>
+        </div>
+
+        <!-- HOTEL -->
+        <div onclick="abrirModal('hotel')" class="travel-card">
+          <div>
+            <div class="hotel-cover">
+              <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=900&q=80" alt="Hotel frente al mar">
+              <span class="hotel-badge">🏨 Estadía Confirmada</span>
+              <div class="hotel-overlay">
+                <div style="font-size:0.72rem; color:#fde68a; font-weight:700; text-transform:uppercase;">Nuestro hogar frente a las olas</div>
+                <h3 id="cardHotelNombre" class="font-display" style="font-size:1.35rem;">Resort &amp; Playa Familiar</h3>
+              </div>
+            </div>
+
+            <div style="padding:22px;">
+              <p style="font-size:0.88rem; color:#475569;">
+                Despertar escuchando el sonido del mar, desayuno delicioso incluido, piscina para jugar horas y salida directa a la arena suave.
+              </p>
+              <div class="tags-row">
+                <span class="tag">🌴 Frente al mar</span>
+                <span class="tag">🏊 Piscina niños</span>
+                <span class="tag">🍳 Desayunos</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-cta cta-amber">🏨 Clic aquí para ver Reserva y Ubicación →</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTIVIDADES -->
+    <section>
+      <div style="text-align:center;">
+        <span class="section-kicker">Paso 3 • Aventuras Juntas</span>
+        <h2 class="section-title">Cosas increíbles que haremos</h2>
+        <p style="color:#64748b; font-size:0.9rem;">Toca cada actividad para ver los detalles o márcala con ❤️ como favorita</p>
+      </div>
+      <div id="activitiesGrid" class="grid-2"></div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+      <p class="font-display" style="font-style:italic; font-size:1.15rem; color:#0c4a6e;">
+        "Los mejores recuerdos no se guardan en cajas, se viven con los pies en la arena."
+      </p>
+      <p style="font-size:0.78rem; color:#64748b;">Hecho con mucho amor para celebrar tus 50 años 🌊🎂</p>
+      <button onclick="abrirConfiguracion()" class="config-trigger">
+        ⚙️ Editar datos del regalo (Links de Video, Tiquetes y Hotel)
+      </button>
+    </footer>
+
+  </main>
+
+  <!-- MODAL DETALLES -->
+  <div id="detailModal" class="modal-backdrop" onclick="if(event.target===this) cerrarModal()">
+    <div class="modal-box">
+      <div id="modalHeader" class="modal-head">
+        <h3 id="modalTitle" class="font-display" style="font-size:1.4rem;">Detalles</h3>
+        <button onclick="cerrarModal()" class="modal-close">✕</button>
+      </div>
+      <div id="modalBody" class="modal-content"></div>
+    </div>
+  </div>
+
+  <!-- MODAL CONFIGURACIÓN -->
+  <div id="configModal" class="modal-backdrop">
+    <div class="modal-box" style="max-width:560px;">
+      <div class="modal-head" style="background:#0f172a;">
+        <div>
+          <h3 class="font-display" style="font-size:1.25rem;">Personalizar Tarjeta de Regalo</h3>
+          <p style="font-size:0.75rem; color:#cbd5e1;">Pega los enlaces reales y copia el link listo para WhatsApp</p>
+        </div>
+        <button onclick="cerrarConfiguracion()" class="modal-close">✕</button>
+      </div>
+      <div class="modal-content">
+        <div class="form-grid">
+          <div class="form-full">
+            <label>Título Principal</label>
+            <input id="cfgTitle" type="text" placeholder="Ej: ¡Felices 50 Años!">
+          </div>
+          <div>
+            <label>Ciudad Origen (3 letras)</label>
+            <input id="cfgOrigen" type="text" maxlength="4" placeholder="Ej: BGA / BOG">
+          </div>
+          <div>
+            <label>Destino (Ciudad / Playa)</label>
+            <input id="cfgDestinoNombre" type="text" placeholder="Ej: Santa Marta / San Andrés">
+          </div>
+          <div>
+            <label>Código Destino (3 letras)</label>
+            <input id="cfgDestino" type="text" maxlength="4" placeholder="Ej: SMR / ADZ">
+          </div>
+          <div>
+            <label>Fechas del viaje</label>
+            <input id="cfgFechas" type="text" placeholder="Ej: 15 al 19 de Mayo">
+          </div>
+          <div class="form-full">
+            <label>🎬 Link del Video de Feliz Cumpleaños (YouTube o MP4)</label>
+            <input id="cfgVideo" type="url" placeholder="https://www.youtube.com/watch?v=...">
+          </div>
+          <div class="form-full">
+            <label>🎟️ Link de los Tiquetes (Google Drive, PDF o Aerolínea)</label>
+            <input id="cfgTiquetesUrl" type="url" placeholder="https://drive.google.com/...">
+          </div>
+          <div>
+            <label>🏨 Nombre del Hotel</label>
+            <input id="cfgHotelNombre" type="text" placeholder="Ej: Hotel Zuana Beach">
+          </div>
+          <div>
+            <label>🔗 Link del Hotel (Booking / Maps)</label>
+            <input id="cfgHotelUrl" type="url" placeholder="https://...">
+          </div>
+        </div>
+
+        <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:8px;">
+          <button onclick="guardarConfiguracion(false)" class="btn btn-white" style="border-radius:12px;">Guardar aquí</button>
+          <button onclick="guardarConfiguracion(true)" class="btn btn-primary" style="border-radius:12px;">📋 Guardar y Copiar Link Listo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const defaultData = {
+      title: "¡Feliz Cumpleaños #50!",
+      origen: "BGA",
+      destino: "MAR",
+      destinoNombre: "Playa & Sol",
+      fechas: "¡Maletas listas!",
+      videoUrl: "https://www.youtube.com/watch?v=inS22_2C8mA",
+      tiquetesUrl: "",
+      hotelNombre: "Hotel Frente al Mar",
+      hotelUrl: ""
+    };
+
+    const actividades = [
+      {
+        id: "primer-bano",
+        emoji: "🌊",
+        titulo: "El Primer Saludo al Mar",
+        badge: "Momento Inolvidable",
+        resumen: "Caminar descalzas por la orilla, sentir las primeras olas en los pies y tomar la foto oficial de sus 8 años conociendo el océano.",
+        detalles: "Llevaremos cámara lista para grabar la reacción exacta cuando vea lo inmenso que es el mar. Ideal hacerlo en la mañana cuando el agua está calientita y tranquila.",
+        tip: "Llevar vestido de baño puesto desde el hotel y bloqueador solar."
+      },
+      {
+        id: "castillos",
+        emoji: "🏰",
+        titulo: "Concurso de Castillos de Arena",
+        badge: "Diversión 8 Años",
+        resumen: "Tarde de baldes, palitas, búsqueda de caracoles y construcción del castillo más grande de toda la playa.",
+        detalles: "Un plan tranquilo para disfrutar en familia bajo la sombrilla mientras la peque juega con la arena húmeda y colecciona conchitas de recuerdo.",
+        tip: "Llevar una bolsita de tela para guardar los caracoles más bonitos."
+      },
+      {
+        id: "lancha",
+        emoji: "🚤",
+        titulo: "Paseo en Lancha & Pececitos",
+        badge: "Aventura en el Agua",
+        resumen: "Un recorrido suave en lancha por aguas cristalinas para ver peces de colores desde el bote o con careta.",
+        detalles: "Un paseo seguro con chalecos salvavidas para todas, perfecto para sentir la brisa del mar y conocer playas escondidas.",
+        tip: "Llevar gafas de sol, gorra bien ajustada y una toalla extra."
+      },
+      {
+        id: "cena-50",
+        emoji: "🥂",
+        titulo: "Cena Especial de los 50 Años",
+        badge: "Celebración VIP",
+        resumen: "Una noche mágica frente al mar con comida deliciosa, brindis por estos 50 años y postre con velita.",
+        detalles: "El momento central para agradecer por la vida, pedir los deseos de los 50 y celebrar que los sueños sí se cumplen.",
+        tip: "Outfit especial de playa para las fotos nocturnas del recuerdo."
+      }
+    ];
+
+    let appData = { ...defaultData };
+    let favoritos = JSON.parse(localStorage.getItem("regalo50_favs") || "[]");
+
+    function cargarDatos() {
+      const params = new URLSearchParams(window.location.search);
+      const encoded = params.get("d");
+      if (encoded) {
+        try {
+          const decoded = JSON.parse(decodeURIComponent(escape(atob(encoded))));
+          appData = { ...defaultData, ...decoded };
+        } catch (e) {}
+      } else {
+        const saved = localStorage.getItem("regalo50_data");
+        if (saved) appData = { ...defaultData, ...JSON.parse(saved) };
+      }
+      aplicarDatosEnPantalla();
+    }
+
+    function aplicarDatosEnPantalla() {
+      document.getElementById("heroTitle").textContent = appData.title;
+      document.getElementById("cardOrigen").textContent = appData.origen || "BGA";
+      document.getElementById("cardDestino").textContent = appData.destino || "MAR";
+      document.getElementById("cardDestinoNombre").textContent = appData.destinoNombre || "Playa & Sol";
+      document.getElementById("cardFechas").textContent = appData.fechas || "¡Maletas listas!";
+      document.getElementById("cardHotelNombre").textContent = appData.hotelNombre || "Hotel Frente al Mar";
+    }
+
+    function getYoutubeEmbedUrl(url) {
+      if (!url) return null;
+      const regExp = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+      const match = url.match(regExp);
+      return match ? `https://www.youtube.com/embed/${match[1]}?autoplay=1&rel=0` : null;
+    }
+
+    function abrirVideo() {
+      lanzarConfeti();
+      document.getElementById("videoEnvelope").classList.add("hidden");
+      const container = document.getElementById("videoPlayerContainer");
+      const wrapper = document.getElementById("videoWrapper");
+      container.classList.remove("hidden");
+
+      const ytUrl = getYoutubeEmbedUrl(appData.videoUrl);
+      if (ytUrl) {
+        wrapper.innerHTML = `<iframe src="${ytUrl}" title="Video Feliz Cumpleaños" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+      } else if (appData.videoUrl) {
+        wrapper.innerHTML = `<video controls autoplay playsinline src="${appData.videoUrl}"></video>`;
+      }
+    }
+
+    function renderActividades() {
+      const grid = document.getElementById("activitiesGrid");
+      grid.innerHTML = actividades.map(act => {
+        const isFav = favoritos.includes(act.id);
+        return `
+          <div onclick="abrirModalActividad('${act.id}')" class="activity-card">
+            <div>
+              <div class="act-top">
+                <div style="display:flex; align-items:center; gap:12px;">
+                  <div class="act-icon">${act.emoji}</div>
+                  <div>
+                    <span class="act-badge">${act.badge}</span>
+                    <h3 style="font-size:1.05rem; color:#0f172a;">${act.titulo}</h3>
+                  </div>
+                </div>
+                <button onclick="toggleFavorito(event, '${act.id}')" class="fav-btn">${isFav ? "❤️" : "🤍"}</button>
+              </div>
+              <p style="font-size:0.88rem; color:#475569; margin-top:12px;">${act.resumen}</p>
+            </div>
+            <div style="padding-top:10px; border-top:1px solid #f1f5f9; font-size:0.8rem; font-weight:700; color:#0284c7; display:flex; justify-content:space-between;">
+              <span>Ver detalles del plan</span>
+              <span>→</span>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function toggleFavorito(event, id) {
+      event.stopPropagation();
+      if (favoritos.includes(id)) {
+        favoritos = favoritos.filter(f => f !== id);
+      } else {
+        favoritos.push(id);
+        if (typeof confetti === "function") confetti({ particleCount: 30, spread: 50, origin: { y: 0.7 } });
+      }
+      localStorage.setItem("regalo50_favs", JSON.stringify(favoritos));
+      renderActividades();
+    }
+
+    function abrirModal(tipo) {
+      const modal = document.getElementById("detailModal");
+      const header = document.getElementById("modalHeader");
+      const title = document.getElementById("modalTitle");
+      const body = document.getElementById("modalBody");
+
+      if (tipo === "tiquetes") {
+        header.style.background = "linear-gradient(90deg, #0284c7, #38bdf8)";
+        title.textContent = "✈️ Tus Tiquetes de Viaje";
+        const tieneLink = appData.tiquetesUrl && appData.tiquetesUrl.trim() !== "";
+        body.innerHTML = `
+          <div style="background:#f0f9ff; padding:16px; border-radius:16px; font-size:0.9rem; display:flex; flex-direction:column; gap:8px;">
+            <div style="display:flex; justify-content:space-between;"><span>Ruta:</span><strong>${appData.origen} → ${appData.destinoNombre} (${appData.destino})</strong></div>
+            <div style="display:flex; justify-content:space-between;"><span>Fecha:</span><strong>${appData.fechas}</strong></div>
+            <div style="display:flex; justify-content:space-between;"><span>Pasajeras:</span><strong>Cumpleañera (50) & Princesa (8)</strong></div>
+          </div>
+          <p style="font-size:0.9rem; color:#475569;">
+            ${tieneLink ? "Tus pases de abordar están listos. Toca el botón para abrir el documento:" : "Aún no has pegado el link de tus tiquetes. Toca el botón de abajo para agregarlo:"}
+          </p>
+          ${tieneLink
+            ? `<a href="${appData.tiquetesUrl}" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%; border-radius:14px;">📄 Abrir / Descargar Tiquetes Ahora</a>`
+            : `<button onclick="cerrarModal(); abrirConfiguracion();" class="btn btn-primary" style="width:100%; border-radius:14px; background:#f59e0b;">⚙️ Agregar Link de Tiquetes</button>`
+          }
+        `;
+      } else if (tipo === "hotel") {
+        header.style.background = "linear-gradient(90deg, #f59e0b, #ea580c)";
+        title.textContent = `🏨 ${appData.hotelNombre}`;
+        const tieneLink = appData.hotelUrl && appData.hotelUrl.trim() !== "";
+        body.innerHTML = `
+          <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80" style="width:100%; height:160px; object-fit:cover; border-radius:16px;" alt="Hotel">
+          <p style="font-size:0.9rem; color:#475569;">Todo listo para descansar frente al mar y disfrutar de la piscina.</p>
+          ${tieneLink
+            ? `<a href="${appData.hotelUrl}" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%; border-radius:14px; background:#f59e0b;">🌐 Ver Fotos, Reserva y Mapa del Hotel</a>`
+            : `<button onclick="cerrarModal(); abrirConfiguracion();" class="btn btn-primary" style="width:100%; border-radius:14px;">⚙️ Agregar Link del Hotel</button>`
+          }
+        `;
+      }
+      modal.classList.add("open");
+    }
+
+    function abrirModalActividad(id) {
+      const act = actividades.find(a => a.id === id);
+      if (!act) return;
+      const modal = document.getElementById("detailModal");
+      const header = document.getElementById("modalHeader");
+      header.style.background = "linear-gradient(90deg, #0d9488, #0284c7)";
+      document.getElementById("modalTitle").textContent = `${act.emoji} ${act.titulo}`;
+      document.getElementById("modalBody").innerHTML = `
+        <span class="act-badge" style="align-self:flex-start;">${act.badge}</span>
+        <p style="font-size:0.95rem; color:#334155;">${act.detalles}</p>
+        <div style="background:#fffbeb; border:1px solid #fde68a; padding:14px; border-radius:14px; font-size:0.88rem; color:#78350f;">
+          <strong>🎒 Consejo para la maleta:</strong> ${act.tip}
+        </div>
+        <button onclick="cerrarModal()" class="btn btn-primary" style="width:100%; border-radius:14px; background:#0f172a;">¡Qué emoción, listo!</button>
+      `;
+      modal.classList.add("open");
+    }
+
+    function cerrarModal() { document.getElementById("detailModal").classList.remove("open"); }
+
+    function abrirConfiguracion() {
+      document.getElementById("cfgTitle").value = appData.title || "";
+      document.getElementById("cfgOrigen").value = appData.origen || "";
+      document.getElementById("cfgDestino").value = appData.destino || "";
+      document.getElementById("cfgDestinoNombre").value = appData.destinoNombre || "";
+      document.getElementById("cfgFechas").value = appData.fechas || "";
+      document.getElementById("cfgVideo").value = appData.videoUrl || "";
+      document.getElementById("cfgTiquetesUrl").value = appData.tiquetesUrl || "";
+      document.getElementById("cfgHotelNombre").value = appData.hotelNombre || "";
+      document.getElementById("cfgHotelUrl").value = appData.hotelUrl || "";
+      document.getElementById("configModal").classList.add("open");
+    }
+
+    function cerrarConfiguracion() { document.getElementById("configModal").classList.remove("open"); }
+
+    function guardarConfiguracion(copiarLink) {
+      appData = {
+        title: document.getElementById("cfgTitle").value.trim() || defaultData.title,
+        origen: document.getElementById("cfgOrigen").value.trim().toUpperCase() || defaultData.origen,
+        destino: document.getElementById("cfgDestino").value.trim().toUpperCase() || defaultData.destino,
+        destinoNombre: document.getElementById("cfgDestinoNombre").value.trim() || defaultData.destinoNombre,
+        fechas: document.getElementById("cfgFechas").value.trim() || defaultData.fechas,
+        videoUrl: document.getElementById("cfgVideo").value.trim(),
+        tiquetesUrl: document.getElementById("cfgTiquetesUrl").value.trim(),
+        hotelNombre: document.getElementById("cfgHotelNombre").value.trim() || defaultData.hotelNombre,
+        hotelUrl: document.getElementById("cfgHotelUrl").value.trim()
+      };
+      localStorage.setItem("regalo50_data", JSON.stringify(appData));
+      aplicarDatosEnPantalla();
+      cerrarConfiguracion();
+
+      if (copiarLink) {
+        const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(appData))));
+        const baseUrl = window.location.href.split("?")[0];
+        const shareUrl = `${baseUrl}?d=${encoded}`;
+        navigator.clipboard.writeText(shareUrl).then(() => {
+          alert("✅ ¡Listo! La URL personalizada se copió.\n\nYa puedes pegarla y enviarla por WhatsApp.");
+        }).catch(() => {
+          prompt("Copia este enlace listo para enviar por WhatsApp:", shareUrl);
+        });
+      }
+    }
+
+    function lanzarConfeti() {
+      if (typeof confetti !== "function") return;
+      confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 }, colors: ['#0ea5e9', '#f59e0b', '#10b981', '#f43f5e'] });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      cargarDatos();
+      renderActividades();
+      setTimeout(lanzarConfeti, 600);
+    });
+  </script>
+</body>
+</html>
