@@ -18,6 +18,8 @@
     h2 { font-family: Georgia, serif; font-size: 1.45rem; color: #0f172a; margin-bottom: 12px; }
     .video-box { margin: 12px auto; max-width: 340px; aspect-ratio: 9/16; border-radius: 20px; overflow: hidden; background: #000; }
     .video-box iframe { width: 100%; height: 100%; border: 0; }
+    .final-video-box { margin: 12px auto 0; width: 100%; aspect-ratio: 16/9; border-radius: 20px; overflow: hidden; background: #000; box-shadow: 0 10px 24px rgba(12,74,110,0.14); }
+    .final-video-box video { width: 100%; height: 100%; object-fit: contain; display: block; }
     details summary { list-style: none; cursor: pointer; }
     details summary::-webkit-details-marker { display: none; }
     details[open] summary { display: none; }
@@ -53,7 +55,7 @@
       <p>Medio siglo merece celebrarse cumpliendo este sueño pendiente: ver el mar por primera vez junto a Luciana. 🌴☀️</p>
     </header>
 
-    <!-- PASO 1: VIDEO -->
+    <!-- PASO 1: VIDEO INICIAL -->
     <section class="card" style="text-align:center;">
       <div class="kicker">Paso 1 • Primero lo primero</div>
       <h2>Un video hecho con todo el corazón</h2>
@@ -108,7 +110,7 @@
       </details>
     </section>
 
-    <!-- PASO 3: SORPRESA #2 (HOTEL ALMIRANTE CON FOTO EXACTA DEL REPO) -->
+    <!-- PASO 3: SORPRESA #2 (HOTEL ALMIRANTE) -->
     <section class="card">
       <div class="kicker">Paso 3 • Sorpresa #2</div>
       <h2>¿Dónde nos vamos a hospedar?</h2>
@@ -206,6 +208,16 @@
           </div>
         </div>
       </details>
+    </section>
+
+    <!-- PASO 6: VIDEO FINAL DE FELIZ CUMPLEAÑOS -->
+    <section class="card" style="text-align:center;">
+      <div class="kicker">Paso 6 • Un último mensaje</div>
+      <h2>¡Disfruta al máximo tus 50 años, Libia! 🎈</h2>
+      <p style="font-size:0.9rem; color:#475569; margin-bottom:10px;">Dale Play ▶️ para cerrar con este deseo especial junto a Luciana[cite: 21]</p>
+      <div class="final-video-box">
+        <video controls playsinline preload="metadata" src="./video-final.mp4"></video>
+      </div>
     </section>
 
     <footer>Hecho con mucho amor para celebrar tus 50 años, Libia 🌊🎂</footer>
