@@ -3,224 +3,192 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>¡Felices 50 Años, Libia! Sorpresa en Cartagena</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>¡Felices 50 Años, Libia!</title>
   <style>
-    :root {
-      --ocean-50: #f0f9ff;
-      --ocean-100: #e0f2fe;
-      --ocean-500: #0ea5e9;
-      --ocean-600: #0284c7;
-      --ocean-800: #075985;
-      --ocean-900: #0c4a6e;
-      --sand-100: #fbf5e9;
-      --amber-400: #fbbf24;
-      --amber-500: #f59e0b;
-      --text-main: #1e293b;
-      --text-muted: #475569;
-    }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: linear-gradient(180deg, #e0f2fe 0%, #f0f9ff 45%, #fbf5e9 100%);
-      color: var(--text-main);
-      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(180deg, #e0f2fe 0%, #f0f9ff 50%, #fbf5e9 100%);
+      color: #1e293b;
       line-height: 1.5;
     }
-
-    .font-display { font-family: 'Playfair Display', Georgia, serif; }
-
-    .top-banner {
+    .banner {
       background: linear-gradient(90deg, #075985, #0284c7, #f59e0b);
-      color: #fff;
-      text-align: center;
-      padding: 10px 16px;
-      font-size: 0.875rem;
-      font-weight: 600;
-      letter-spacing: 0.3px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      user-select: none;
+      color: #fff; text-align: center; padding: 10px 14px; font-size: 0.85rem; font-weight: 700;
     }
+    .wrap { max-width: 680px; margin: 0 auto; padding: 26px 16px 70px; display: flex; flex-direction: column; gap: 26px; }
+    .hero { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .badge { background: #fef3c7; color: #92400e; padding: 6px 14px; border-radius: 999px; font-size: 0.8rem; font-weight: 700; border: 1px solid #fde68a; }
+    h1 { font-family: Georgia, serif; font-size: 2.2rem; color: #0c4a6e; line-height: 1.15; }
+    .hero p { color: #475569; font-size: 0.98rem; max-width: 560px; }
+    .card { background: #fff; border-radius: 24px; padding: 22px; box-shadow: 0 10px 28px rgba(12,74,110,0.08); }
+    .kicker { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #0284c7; }
+    h2 { font-family: Georgia, serif; font-size: 1.5rem; color: #0f172a; margin-bottom: 12px; }
+    .video-box { margin: 12px auto; max-width: 340px; aspect-ratio: 9/16; border-radius: 20px; overflow: hidden; background: #000; }
+    .video-box iframe { width: 100%; height: 100%; border: 0; }
+    details summary { list-style: none; cursor: pointer; }
+    details summary::-webkit-details-marker { display: none; }
+    details[open] summary { display: none; }
+    .env { border-radius: 20px; padding: 30px 18px; text-align: center; color: #fff; }
+    .c-blue { background: linear-gradient(135deg, #1e1b4b, #0284c7); }
+    .c-teal { background: linear-gradient(135deg, #0f766e, #0d9488); }
+    .c-gold { background: linear-gradient(135deg, #b45309, #f59e0b); }
+    .c-sky { background: linear-gradient(135deg, #0c4a6e, #0284c7); }
+    .env h3 { font-family: Georgia, serif; font-size: 1.45rem; margin: 8px 0 6px; }
+    .env p { font-size: 0.9rem; opacity: 0.95; margin-bottom: 16px; }
+    .pill-btn { display: inline-block; background: #fff; color: #0f172a; padding: 10px 22px; border-radius: 999px; font-weight: 800; font-size: 0.85rem; }
+    .rev { border: 1px solid #e2e8f0; border-radius: 20px; overflow: hidden; }
+    .rev-head { padding: 16px 20px; color: #fff; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; font-weight: 700; }
+    .rev-body { padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+    .route { display: flex; justify-content: space-between; align-items: center; text-align: center; }
+    .iata { font-size: 1.85rem; font-weight: 800; color: #0f172a; }
+    .grid-info { background: #f8fafc; padding: 12px; border-radius: 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.82rem; }
+    .hotel-img { width: 100%; height: 210px; object-fit: cover; display: block; }
+    .inc { background: #f0f9ff; padding: 14px; border-radius: 14px; font-size: 0.86rem; display: flex; flex-direction: column; gap: 6px; }
+    .bono { background: #fef3c7; border: 2px dashed #f59e0b; border-radius: 20px; padding: 26px 18px; text-align: center; }
+    .bono .monto { font-family: Georgia, serif; font-size: 2.5rem; font-weight: 700; color: #b45309; margin: 8px 0; }
+    .cta { display: block; text-align: center; background: #f59e0b; color: #fff; text-decoration: none; padding: 12px; border-radius: 12px; font-weight: 700; font-size: 0.9rem; }
+    footer { text-align: center; color: #64748b; font-size: 0.82rem; padding-top: 10px; }
+  </style>
+</head>
+<body>
+  <div class="banner">✨ 50 Años de Libia &amp; La Primera Vez de Luciana Frente al Mar ✨</div>
+  <main class="wrap">
+    <header class="hero">
+      <span class="badge">🎂 50 Años • 🌊 ¡Nos vamos al mar!</span>
+      <h1>¡Feliz Cumpleaños #50, Libia!</h1>
+      <p>Medio siglo merece celebrarse cumpliendo este sueño pendiente: ver el mar por primera vez junto a Luciana. 🌴☀️</p>
+    </header>
 
-    .container {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 32px 16px 76px;
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-    }
+    <section class="card" style="text-align:center;">
+      <div class="kicker">Paso 1 • Primero lo primero</div>
+      <h2>Un video hecho con todo el corazón</h2>
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/9KIHdtN567w?rel=0&playsinline=1" allowfullscreen></iframe>
+      </div>
+      <a href="https://youtube.com/shorts/9KIHdtN567w" target="_blank" style="font-size:0.82rem; color:#0284c7; font-weight:700;">🎬 Ver en pantalla completa en YouTube</a>
+    </section>
 
-    /* HERO */
-    .hero { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; padding-top: 6px; }
-    .pill-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 6px 16px; border-radius: 999px;
-      background: #fef3c7; color: #92400e;
-      font-weight: 700; font-size: 0.82rem;
-      border: 1px solid #fde68a;
-    }
+    <section class="card">
+      <div class="kicker">Paso 2 • Sorpresa #1</div>
+      <h2>¿A dónde nos vamos?</h2>
+      <details>
+        <summary>
+          <div class="env c-blue">
+            <div style="font-size:2rem;">✉️</div>
+            <h3>Sobre Sorpresa #1</h3>
+            <p>Toca aquí para descubrir nuestro vuelo de ida...</p>
+            <span class="pill-btn">Abrir Tiquete de Ida 🎟️</span>
+          </div>
+        </summary>
+        <div class="rev">
+          <div class="rev-head" style="background:#312e81;">
+            <span>Bogotá → Cartagena</span>
+            <span>✈️ LATAM Airlines</span>
+          </div>
+          <div class="rev-body">
+            <div class="route">
+              <div><div class="iata">BOG</div><small>Bogotá</small></div>
+              <div>✈️ ┄┄┄ 🌊<br><strong style="font-size:0.8rem; color:#3730a3;">Noviembre 2026</strong></div>
+              <div><div class="iata" style="color:#0284c7;">CTG</div><small>Cartagena</small></div>
+            </div>
+            <div class="grid-info">
+              <div><small style="color:#64748b;">Reserva</small><br><strong>LFJARE</strong></div>
+              <div><small style="color:#64748b;">Orden</small><br><strong>LA0357315XQZD</strong></div>
+              <div style="grid-column:1/-1;"><small style="color:#64748b;">Pasajeras</small><br><strong>Libia Miranda Marín &amp; Luciana Guzmán Miranda</strong></div>
+            </div>
+          </div>
+        </div>
+      </details>
+    </section>
 
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.1rem, 5vw, 3.4rem);
-      color: var(--ocean-900);
-      line-height: 1.15;
-    }
-    .hero p { max-width: 610px; color: var(--text-muted); font-size: 1.02rem; }
+    <section class="card">
+      <div class="kicker">Paso 3 • Sorpresa #2</div>
+      <h2>¿Dónde nos vamos a hospedar?</h2>
+      <details>
+        <summary>
+          <div class="env c-teal">
+            <div style="font-size:2rem;">💌</div>
+            <h3>Sobre Sorpresa #2</h3>
+            <p>Toca aquí para conocer nuestro hotel frente al mar...</p>
+            <span class="pill-btn">Descubrir Hotel 🌴</span>
+          </div>
+        </summary>
+        <div class="rev">
+          <img class="hotel-img" src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=900&q=80" alt="Hotel Almirante">
+          <div class="rev-body">
+            <h3 style="font-family:Georgia,serif; font-size:1.35rem; color:#0c4a6e;">Hotel Almirante Cartagena (Bocagrande)</h3>
+            <p style="font-size:0.86rem; background:#fffbeb; padding:10px; border-radius:10px; color:#78350f;">
+              <strong>🛏️ Habitación:</strong> Estándar con 2 camas Twin, baño, minibar, cajilla de seguridad y TV LCD.
+            </p>
+            <div class="inc">
+              <strong style="color:#075985;">✨ Tu tarifa incluye:</strong>
+              <div>🍹 Bebida de Bienvenida</div>
+              <div>☕ Estación de Café en Lobby (5:00 a.m. - 7:00 a.m.)</div>
+              <div>🍳 Desayuno Buffet (7:00 a.m. - 10:00 a.m. en Rest. Los Corales)</div>
+              <div>🏊 Piscina, Sauna y Gimnasio (Quinto Piso)</div>
+              <div>📶 Internet WiFi</div>
+            </div>
+            <a href="https://www.hotelalmirantecartagena.com.co/" target="_blank" class="cta">🌐 Ver Hotel Almirante Cartagena</a>
+          </div>
+        </div>
+      </details>
+    </section>
 
-    /* TARJETAS DE PASO */
-    .step-card {
-      background: rgba(255, 255, 255, 0.96);
-      border-radius: 28px;
-      padding: 24px;
-      box-shadow: 0 12px 32px rgba(12, 74, 110, 0.08);
-      border: 1px solid #fff;
-    }
-    .step-header {
-      display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 16px;
-    }
-    .step-kicker {
-      font-size: 0.75rem; font-weight: 800; text-transform: uppercase;
-      letter-spacing: 1px; color: var(--ocean-600);
-    }
-    .step-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.65rem;
-      color: #0f172a;
-    }
+    <section class="card">
+      <div class="kicker">Paso 4 • Sorpresa #3</div>
+      <h2>Un regalo extra para disfrutar</h2>
+      <details>
+        <summary>
+          <div class="env c-gold">
+            <div style="font-size:2rem;">🎁</div>
+            <h3>Sobre Sorpresa #3</h3>
+            <p>Para darse gustos frente al mar sin preocupaciones...</p>
+            <span class="pill-btn">Abrir Regalo Especial 💝</span>
+          </div>
+        </summary>
+        <div class="bono">
+          <span style="background:#f59e0b; color:#fff; padding:4px 12px; border-radius:999px; font-size:0.75rem; font-weight:800;">BONO REGALO • 50 AÑOS</span>
+          <div class="monto">$600.000 COP</div>
+          <p style="font-weight:700; color:#78350f;">Para disfrutar en Cartagena en paseos, helados, cenas y recuerdos 🍦🚤</p>
+        </div>
+      </details>
+    </section>
 
-    /* PASO 1: VIDEO */
-    .video-box {
-      margin: 16px auto 0;
-      width: 100%;
-      max-width: 360px;
-      aspect-ratio: 9 / 16;
-      border-radius: 24px;
-      overflow: hidden;
-      background: #0f172a;
-      box-shadow: 0 16px 36px rgba(12, 74, 110, 0.22);
-      border: 4px solid #fff;
-    }
-    .video-box iframe { width: 100%; height: 100%; border: 0; display: block; }
+    <section class="card">
+      <div class="kicker">Paso 5 • Sorpresa #4</div>
+      <h2>Tiquete de Regreso</h2>
+      <details>
+        <summary>
+          <div class="env c-sky">
+            <div style="font-size:2rem;">🎫</div>
+            <h3>Sobre Sorpresa #4</h3>
+            <p>Toca aquí para ver el vuelo de regreso a casa...</p>
+            <span class="pill-btn">Abrir Tiquete de Regreso ✈️</span>
+          </div>
+        </summary>
+        <div class="rev">
+          <div class="rev-head" style="background:#075985;">
+            <span>Cartagena → Bogotá</span>
+            <span>✈️ JetSMART • JA5167</span>
+          </div>
+          <div class="rev-body">
+            <div class="route">
+              <div><div class="iata" style="color:#0284c7;">CTG</div><small>22:04 (10:04 p.m.)</small></div>
+              <div>🌴 ┄ Directo ┄ ✈️<br><strong style="font-size:0.8rem; color:#0369a1;">23 Nov 2026</strong></div>
+              <div><div class="iata">BOG</div><small>23:40 (11:40 p.m.)</small></div>
+            </div>
+            <div class="grid-info">
+              <div><small style="color:#64748b;">Reserva</small><br><strong>ZGZB6U</strong></div>
+              <div><small style="color:#64748b;">Check-in Online</small><br><strong>Desde 20 Nov 2026</strong></div>
+              <div style="grid-column:1/-1;"><small style="color:#64748b;">Pasajeras</small><br><strong>Libia Miranda &amp; Luciana Guzmán (2 Pasajeras)</strong></div>
+            </div>
+          </div>
+        </div>
+      </details>
+    </section>
 
-    /* SOBRES NATIVOS (100% INFALIBLES EN CELULAR Y PC) */
-    details.surprise-envelope {
-      width: 100%;
-    }
-    details.surprise-envelope > summary {
-      list-style: none;
-      cursor: pointer;
-      outline: none;
-      -webkit-tap-highlight-color: transparent;
-    }
-    details.surprise-envelope > summary::-webkit-details-marker {
-      display: none;
-    }
-    details.surprise-envelope[open] > summary {
-      display: none;
-    }
-
-    .envelope-box {
-      border-radius: 22px;
-      padding: 36px 22px;
-      text-align: center;
-      color: #fff;
-      transition: transform 0.2s, filter 0.2s;
-      box-shadow: 0 10px 25px rgba(12, 74, 110, 0.16);
-    }
-    .envelope-box:active { transform: scale(0.98); }
-    .env-blue { background: linear-gradient(135deg, #1e1b4b 0%, #312e81 55%, #0284c7 100%); }
-    .env-teal { background: linear-gradient(135deg, #0f766e 0%, #0d9488 60%, #2dd4bf 100%); }
-    .env-gold { background: linear-gradient(135deg, #b45309 0%, #d97706 55%, #f59e0b 100%); }
-    .env-sunset { background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 60%, #06b6d4 100%); }
-
-    .env-icon {
-      width: 68px; height: 68px; margin: 0 auto 14px;
-      border-radius: 50%; background: rgba(255,255,255,0.22);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2rem; box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-    }
-    .envelope-box h3 { font-family: 'Playfair Display', serif; font-size: 1.55rem; margin-bottom: 6px; }
-    .envelope-box p { font-size: 0.92rem; opacity: 0.94; max-width: 430px; margin: 0 auto 18px; }
-    .env-btn {
-      display: inline-block; background: #fff; color: #0f172a;
-      padding: 11px 24px; border-radius: 999px; font-weight: 800; font-size: 0.88rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.14);
-    }
-
-    /* CONTENIDO REVELADO */
-    .revealed-box {
-      animation: popIn 0.4s ease-out;
-      border-radius: 22px;
-      overflow: hidden;
-      border: 1px solid #e2e8f0;
-      background: #fff;
-    }
-    @keyframes popIn {
-      0% { opacity: 0; transform: translateY(10px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    /* PASE DE ABORDAR */
-    .boarding-head {
-      background: linear-gradient(90deg, #1e1b4b, #4338ca);
-      color: #fff; padding: 18px 22px;
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;
-    }
-    .boarding-head.return-flight {
-      background: linear-gradient(90deg, #075985, #0284c7);
-    }
-    .airline-pill {
-      background: rgba(255,255,255,0.2);
-      padding: 4px 12px;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      font-weight: 800;
-    }
-    .boarding-body { padding: 22px; display: flex; flex-direction: column; gap: 16px; }
-    .route-grid { display: flex; align-items: center; justify-content: space-between; text-align: center; }
-    .iata { font-size: 2rem; font-weight: 800; color: #0f172a; line-height: 1.1; }
-    .iata.highlight { color: var(--ocean-600); }
-    .flight-time { font-size: 0.92rem; font-weight: 800; color: #0284c7; margin-top: 3px; }
-    .dashed-sep { border-top: 2px dashed #cbd5e1; }
-
-    .info-strip {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 14px;
-      padding: 12px 14px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 10px;
-      font-size: 0.82rem;
-    }
-
-    /* HOTEL ALMIRANTE */
-    .hotel-img-wrap { position: relative; height: 240px; overflow: hidden; }
-    .hotel-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .hotel-caption {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.82), rgba(0,0,0,0.08));
-      display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 20px; color: #fff;
-    }
-    .hotel-includes {
-      background: #f0f9ff;
-      border: 1px solid #bae6fd;
-      border-radius: 16px;
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .hotel-includes h4 {
-      font-size: 0.85rem;
-      font-weight: 800;
-      color: #075985;
-      text-transform: uppercase;
-      letter-
+    <footer>Hecho con mucho amor para celebrar tus 50 años, Libia 🌊🎂</footer>
+  </main>
+</body>
+</html>
