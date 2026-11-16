@@ -553,11 +553,36 @@
       document.getElementById("cardHotelNombre").textContent = appData.hotelNombre || "Hotel Frente al Mar";
     }
 
-    function getYoutubeEmbedUrl(url) {
+   function getEmbedVideo(url) {
       if (!url) return null;
-      const regExp = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
-      const match = url.match(regExp);
-      return match ? `https://www.youtube.com/embed/${match[1]}?autoplay=1&rel=0` : null;
+      // Soporta YouTube normal, youtu.be, embed y YouTube Shorts
+      const ytMatch = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+      if (ytMatch) {
+        return { type: 'iframe', src: `https://www.youtube.com/embed/${ytMatch[1]}?autoplay=1&rel=0` };
+      }
+      // Soporta enlaces de Google Drive
+      const driveMatch = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
+      if (driveMatch) {
+        return { type: 'iframe', src: `https://drive.google.com/file/d/${driveMatch[1]}/preview` };
+      }
+      return { type: 'video', src: url };
+    }
+
+    function abrirVideo() {
+      lanzarConfeti();
+      document.getElementById("videoEnvelope").classList.add("hidden");
+      const container = document.getElementById("videoPlayerContainer");
+      const wrapper = document.getElementById("videoWrapper");
+      container.classList.remove("hidden");
+
+      const media = getEmbedVideo(appData.videoUrl);
+      if (!media) return;
+      if (media.type === 'iframe') {
+        wrapper.innerHTML = `<iframe src="${media.src}" title="Video Feliz Cumpleaños" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+      } else {
+        wrapper.innerHTML = `<video controls autoplay playsinline src="${media.src}"></video>`;
+      }
+    }
     }
 
     function abrirVideo() {
