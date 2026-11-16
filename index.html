@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¡Felices 50 Años! Un Viaje al Mar</title>
+  <script>
+    window.tailwind = window.tailwind || {};
+    window.tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Playfair Display"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            ocean: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              800: '#075985',
+              900: '#0c4a6e',
+            },
+            sand: {
+              50: '#fdfbf7',
+              100: '#fbf5e9',
+              200: '#f5e6c8',
+              500: '#d97706',
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    .animate-float {
+      animation: float 4s ease-in-out infinite;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+    .boarding-pass-cutout {
+      position: relative;
+    }
+    .boarding-pass-cutout::before,
+    .boarding-pass-cutout::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background-color: #f0f9ff;
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .boarding-pass-cutout::before { left: -12px; }
+    .boarding-pass-cutout::after { right: -12px; }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-ocean-100 via-ocean-50 to-sand-100 text-slate-800 font-sans min-h-screen selection:bg-ocean-500 selection:text-white">
+
+  <!-- Barra superior decorativa -->
+  <div class="bg-gradient-to-r from-ocean-800 via-ocean-600 to-amber-500 text-white text-center py-2.5 px-4 text-sm font-medium tracking-wide shadow-sm">
+    ✨ Edición Especial: 50 Años & La Primera Vez Frente al Mar ✨
+  </div>
+
+  <!-- Contenedor Principal -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 pt-8 pb-24 space-y-12">
+
+    <!-- HERO / PORTADA -->
+    <header class="text-center space-y-5 relative pt-4">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 text-amber-800 font-semibold text-xs sm:text-sm border border-amber-200 shadow-sm animate-float">
+        <span>🎂 50 Años de Vida</span>
+        <span>•</span>
+        <span>🌊 ¡Por fin conoceremos el mar!</span>
+      </div>
+
+      <h1 id="heroTitle" class="font-display text-4xl sm:text-6xl font-bold text-ocean-900 leading-tight">
+        ¡Feliz Cumpleaños #50!
+      </h1>
+
+      <p id="heroSubtitle" class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+        Medio siglo merece celebrarse a lo grande, y no hay mejor regalo que cumplir juntas un sueño pendiente: ver el mar
