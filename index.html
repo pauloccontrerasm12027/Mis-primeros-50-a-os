@@ -271,7 +271,7 @@
         Medio siglo merece celebrarse a lo grande, y no hay mejor regalo que cumplir juntas un sueño pendiente: ver el mar por primera vez con nuestra princesa de 8 años. 🌴☀️
       </p>
       <div class="hero-actions">
-        <button onclick="lanzarConfeti()" class="btn btn-white">🎉 ¡Celebrar otra vez!</button>
+        <button type="button" onclick="lanzarConfeti()" class="btn btn-white">🎉 ¡Celebrar otra vez!</button>
         <a href="#regalos" class="btn btn-primary">🎁 Ver Tiquetes, Hotel y Planes</a>
       </div>
     </header>
@@ -290,9 +290,14 @@
 
       <div id="videoPlayerContainer" class="hidden">
         <div class="video-wrapper" id="videoWrapper"></div>
-        <p style="text-align:center; font-size:0.82rem; color:#64748b; margin-top:10px;">
-          Desliza hacia abajo para revisar tus tiquetes, el hotel y las actividades 👇
-        </p>
+        <div style="text-align:center; margin-top:12px; display:flex; flex-direction:column; gap:8px; align-items:center;">
+          <a id="directYoutubeBtn" href="https://youtube.com/shorts/9KIHdtN567w" target="_blank" rel="noopener" style="font-size:0.82rem; color:#0284c7; font-weight:700; text-decoration:underline;">
+            ↗️ Si el video no carga aquí, tócalo para verlo directo en YouTube
+          </a>
+          <p style="font-size:0.82rem; color:#64748b;">
+            Desliza hacia abajo para revisar tus tiquetes, el hotel y las actividades 👇
+          </p>
+        </div>
       </div>
     </section>
 
@@ -323,7 +328,7 @@
               <div class="route-row">
                 <div>
                   <div style="font-size:0.7rem; color:#94a3b8; font-weight:700;">ORIGEN</div>
-                  <div id="cardOrigen" class="airport-code">BOG</div>
+                  <div id="cardOrigen" class="airport-code">BGA</div>
                   <div style="font-size:0.75rem; color:#64748b;">Salida</div>
                 </div>
                 <div style="padding:0 10px;">
@@ -333,7 +338,7 @@
                 <div>
                   <div style="font-size:0.7rem; color:#94a3b8; font-weight:700;">DESTINO</div>
                   <div id="cardDestino" class="airport-code dest">MAR</div>
-                  <div id="cardDestinoNombre" style="font-size:0.75rem; color:#64748b;">Paraíso Tropical</div>
+                  <div id="cardDestinoNombre" style="font-size:0.75rem; color:#64748b;">Playa &amp; Sol</div>
                 </div>
               </div>
 
@@ -362,7 +367,7 @@
               <span class="hotel-badge">🏨 Estadía Confirmada</span>
               <div class="hotel-overlay">
                 <div style="font-size:0.72rem; color:#fde68a; font-weight:700; text-transform:uppercase;">Nuestro hogar frente a las olas</div>
-                <h3 id="cardHotelNombre" class="font-display" style="font-size:1.35rem;">Resort &amp; Playa Familiar</h3>
+                <h3 id="cardHotelNombre" class="font-display" style="font-size:1.35rem;">Hotel Frente al Mar</h3>
               </div>
             </div>
 
@@ -398,7 +403,7 @@
         "Los mejores recuerdos no se guardan en cajas, se viven con los pies en la arena."
       </p>
       <p style="font-size:0.78rem; color:#64748b;">Hecho con mucho amor para celebrar tus 50 años 🌊🎂</p>
-      <button onclick="abrirConfiguracion()" class="config-trigger">
+      <button type="button" onclick="abrirConfiguracion()" class="config-trigger">
         ⚙️ Editar datos del regalo (Links de Video, Tiquetes y Hotel)
       </button>
     </footer>
@@ -410,7 +415,7 @@
     <div class="modal-box">
       <div id="modalHeader" class="modal-head">
         <h3 id="modalTitle" class="font-display" style="font-size:1.4rem;">Detalles</h3>
-        <button onclick="cerrarModal()" class="modal-close">✕</button>
+        <button type="button" onclick="cerrarModal()" class="modal-close">✕</button>
       </div>
       <div id="modalBody" class="modal-content"></div>
     </div>
@@ -424,7 +429,7 @@
           <h3 class="font-display" style="font-size:1.25rem;">Personalizar Tarjeta de Regalo</h3>
           <p style="font-size:0.75rem; color:#cbd5e1;">Pega los enlaces reales y copia el link listo para WhatsApp</p>
         </div>
-        <button onclick="cerrarConfiguracion()" class="modal-close">✕</button>
+        <button type="button" onclick="cerrarConfiguracion()" class="modal-close">✕</button>
       </div>
       <div class="modal-content">
         <div class="form-grid">
@@ -467,8 +472,8 @@
         </div>
 
         <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:8px;">
-          <button onclick="guardarConfiguracion(false)" class="btn btn-white" style="border-radius:12px;">Guardar aquí</button>
-          <button onclick="guardarConfiguracion(true)" class="btn btn-primary" style="border-radius:12px;">📋 Guardar y Copiar Link Listo</button>
+          <button type="button" onclick="guardarConfiguracion(false)" class="btn btn-white" style="border-radius:12px;">Guardar aquí</button>
+          <button type="button" onclick="guardarConfiguracion(true)" class="btn btn-primary" style="border-radius:12px;">📋 Guardar y Copiar Link Listo</button>
         </div>
       </div>
     </div>
@@ -481,7 +486,7 @@
       destino: "MAR",
       destinoNombre: "Playa & Sol",
       fechas: "¡Maletas listas!",
-      videoUrl: "https://www.youtube.com/watch?v=inS22_2C8mA",
+      videoUrl: "https://www.youtube.com/watch?v=9KIHdtN567w",
       tiquetesUrl: "",
       hotelNombre: "Hotel Frente al Mar",
       hotelUrl: ""
@@ -539,7 +544,13 @@
         } catch (e) {}
       } else {
         const saved = localStorage.getItem("regalo50_data");
-        if (saved) appData = { ...defaultData, ...JSON.parse(saved) };
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          appData = { ...defaultData, ...parsed };
+          if (!appData.videoUrl || appData.videoUrl.includes("inS22_2C8mA")) {
+            appData.videoUrl = defaultData.videoUrl;
+          }
+        }
       }
       aplicarDatosEnPantalla();
     }
@@ -551,21 +562,18 @@
       document.getElementById("cardDestinoNombre").textContent = appData.destinoNombre || "Playa & Sol";
       document.getElementById("cardFechas").textContent = appData.fechas || "¡Maletas listas!";
       document.getElementById("cardHotelNombre").textContent = appData.hotelNombre || "Hotel Frente al Mar";
+      if (appData.videoUrl) {
+        document.getElementById("directYoutubeBtn").href = appData.videoUrl;
+      }
     }
 
-   function getEmbedVideo(url) {
-      if (!url) return null;
-      // Soporta YouTube normal, youtu.be, embed y YouTube Shorts
-      const ytMatch = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+    function getEmbedVideo(url) {
+      const targetUrl = (url && url.trim()) ? url.trim() : defaultData.videoUrl;
+      const ytMatch = targetUrl.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
       if (ytMatch) {
-        return { type: 'iframe', src: `https://www.youtube.com/embed/${ytMatch[1]}?autoplay=1&rel=0` };
+        return { type: 'iframe', src: `https://www.youtube.com/embed/${ytMatch[1]}?autoplay=1&rel=0` }; } const driveMatch = targetUrl.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/); if (driveMatch) { return { type: 'iframe', src: `https://drive.google.com/file/d/${driveMatch[1]}/preview` };
       }
-      // Soporta enlaces de Google Drive
-      const driveMatch = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
-      if (driveMatch) {
-        return { type: 'iframe', src: `https://drive.google.com/file/d/${driveMatch[1]}/preview` };
-      }
-      return { type: 'video', src: url };
+      return { type: 'video', src: targetUrl };
     }
 
     function abrirVideo() {
@@ -576,27 +584,10 @@
       container.classList.remove("hidden");
 
       const media = getEmbedVideo(appData.videoUrl);
-      if (!media) return;
       if (media.type === 'iframe') {
         wrapper.innerHTML = `<iframe src="${media.src}" title="Video Feliz Cumpleaños" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
       } else {
         wrapper.innerHTML = `<video controls autoplay playsinline src="${media.src}"></video>`;
-      }
-    }
-    }
-
-    function abrirVideo() {
-      lanzarConfeti();
-      document.getElementById("videoEnvelope").classList.add("hidden");
-      const container = document.getElementById("videoPlayerContainer");
-      const wrapper = document.getElementById("videoWrapper");
-      container.classList.remove("hidden");
-
-      const ytUrl = getYoutubeEmbedUrl(appData.videoUrl);
-      if (ytUrl) {
-        wrapper.innerHTML = `<iframe src="${ytUrl}" title="Video Feliz Cumpleaños" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-      } else if (appData.videoUrl) {
-        wrapper.innerHTML = `<video controls autoplay playsinline src="${appData.videoUrl}"></video>`;
       }
     }
 
@@ -615,7 +606,7 @@
                     <h3 style="font-size:1.05rem; color:#0f172a;">${act.titulo}</h3>
                   </div>
                 </div>
-                <button onclick="toggleFavorito(event, '${act.id}')" class="fav-btn">${isFav ? "❤️" : "🤍"}</button>
+                <button type="button" onclick="toggleFavorito(event, '${act.id}')" class="fav-btn">${isFav ? "❤️" : "🤍"}</button>
               </div>
               <p style="font-size:0.88rem; color:#475569; margin-top:12px;">${act.resumen}</p>
             </div>
@@ -661,7 +652,7 @@
           </p>
           ${tieneLink
             ? `<a href="${appData.tiquetesUrl}" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%; border-radius:14px;">📄 Abrir / Descargar Tiquetes Ahora</a>`
-            : `<button onclick="cerrarModal(); abrirConfiguracion();" class="btn btn-primary" style="width:100%; border-radius:14px; background:#f59e0b;">⚙️ Agregar Link de Tiquetes</button>`
+            : `<button type="button" onclick="cerrarModal(); abrirConfiguracion();" class="btn btn-primary" style="width:100%; border-radius:14px; background:#f59e0b;">⚙️ Agregar Link de Tiquetes</button>`
           }
         `;
       } else if (tipo === "hotel") {
@@ -673,7 +664,7 @@
           <p style="font-size:0.9rem; color:#475569;">Todo listo para descansar frente al mar y disfrutar de la piscina.</p>
           ${tieneLink
             ? `<a href="${appData.hotelUrl}" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%; border-radius:14px; background:#f59e0b;">🌐 Ver Fotos, Reserva y Mapa del Hotel</a>`
-            : `<button onclick="cerrarModal(); abrirConfiguracion();" class="btn btn-primary" style="width:100%; border-radius:14px;">⚙️ Agregar Link del Hotel</button>`
+            : `<button type="button" onclick="cerrarModal(); abrirConfiguracion();" class="btn btn-primary" style="width:100%; border-radius:14px;">⚙️ Agregar Link del Hotel</button>`
           }
         `;
       }
@@ -686,73 +677,8 @@
       const modal = document.getElementById("detailModal");
       const header = document.getElementById("modalHeader");
       header.style.background = "linear-gradient(90deg, #0d9488, #0284c7)";
-      document.getElementById("modalTitle").textContent = `${act.emoji} ${act.titulo}`;
+      document.getElementById("modalTitle").textContent = `${act.emoji}${act.titulo}`;
       document.getElementById("modalBody").innerHTML = `
         <span class="act-badge" style="align-self:flex-start;">${act.badge}</span>
         <p style="font-size:0.95rem; color:#334155;">${act.detalles}</p>
-        <div style="background:#fffbeb; border:1px solid #fde68a; padding:14px; border-radius:14px; font-size:0.88rem; color:#78350f;">
-          <strong>🎒 Consejo para la maleta:</strong> ${act.tip}
-        </div>
-        <button onclick="cerrarModal()" class="btn btn-primary" style="width:100%; border-radius:14px; background:#0f172a;">¡Qué emoción, listo!</button>
-      `;
-      modal.classList.add("open");
-    }
-
-    function cerrarModal() { document.getElementById("detailModal").classList.remove("open"); }
-
-    function abrirConfiguracion() {
-      document.getElementById("cfgTitle").value = appData.title || "";
-      document.getElementById("cfgOrigen").value = appData.origen || "";
-      document.getElementById("cfgDestino").value = appData.destino || "";
-      document.getElementById("cfgDestinoNombre").value = appData.destinoNombre || "";
-      document.getElementById("cfgFechas").value = appData.fechas || "";
-      document.getElementById("cfgVideo").value = appData.videoUrl || "";
-      document.getElementById("cfgTiquetesUrl").value = appData.tiquetesUrl || "";
-      document.getElementById("cfgHotelNombre").value = appData.hotelNombre || "";
-      document.getElementById("cfgHotelUrl").value = appData.hotelUrl || "";
-      document.getElementById("configModal").classList.add("open");
-    }
-
-    function cerrarConfiguracion() { document.getElementById("configModal").classList.remove("open"); }
-
-    function guardarConfiguracion(copiarLink) {
-      appData = {
-        title: document.getElementById("cfgTitle").value.trim() || defaultData.title,
-        origen: document.getElementById("cfgOrigen").value.trim().toUpperCase() || defaultData.origen,
-        destino: document.getElementById("cfgDestino").value.trim().toUpperCase() || defaultData.destino,
-        destinoNombre: document.getElementById("cfgDestinoNombre").value.trim() || defaultData.destinoNombre,
-        fechas: document.getElementById("cfgFechas").value.trim() || defaultData.fechas,
-        videoUrl: document.getElementById("cfgVideo").value.trim(),
-        tiquetesUrl: document.getElementById("cfgTiquetesUrl").value.trim(),
-        hotelNombre: document.getElementById("cfgHotelNombre").value.trim() || defaultData.hotelNombre,
-        hotelUrl: document.getElementById("cfgHotelUrl").value.trim()
-      };
-      localStorage.setItem("regalo50_data", JSON.stringify(appData));
-      aplicarDatosEnPantalla();
-      cerrarConfiguracion();
-
-      if (copiarLink) {
-        const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(appData))));
-        const baseUrl = window.location.href.split("?")[0];
-        const shareUrl = `${baseUrl}?d=${encoded}`;
-        navigator.clipboard.writeText(shareUrl).then(() => {
-          alert("✅ ¡Listo! La URL personalizada se copió.\n\nYa puedes pegarla y enviarla por WhatsApp.");
-        }).catch(() => {
-          prompt("Copia este enlace listo para enviar por WhatsApp:", shareUrl);
-        });
-      }
-    }
-
-    function lanzarConfeti() {
-      if (typeof confetti !== "function") return;
-      confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 }, colors: ['#0ea5e9', '#f59e0b', '#10b981', '#f43f5e'] });
-    }
-
-    window.addEventListener("DOMContentLoaded", () => {
-      cargarDatos();
-      renderActividades();
-      setTimeout(lanzarConfeti, 600);
-    });
-  </script>
-</body>
-</html>
+        <div style="background:#fffbeb; border:1px solid #fde68a; padding:14px; border-radius:14px; font-size:0.88rem; color:#7
